@@ -1,13 +1,20 @@
+/* eslint-disable react/prop-types */
 import { Calendar } from "../Calendar"
 
-// eslint-disable-next-line react/prop-types
 export const Card = ({themeClass, themeText, title, date, link}) => {
+
+	const themes = {
+		"Web Design": "_orange",
+		"Research": "_green",
+		"Copywriting": "_purple",
+	}
+	const theme = themes[themeText] || " ";
     return (
         <div className="cards__item">
 									<div className="cards__card card">
 										<div className="card__group">
-											<div className={`card__theme ${themeClass}`}>
-												<p className={themeClass}>{themeText}</p>
+											<div className={`card__theme ${theme}`}>
+												<p className={themeText}>{title}</p>
 											</div>
 											<a href="#popBrowse" target="_self">
 												<div className="card__btn">
