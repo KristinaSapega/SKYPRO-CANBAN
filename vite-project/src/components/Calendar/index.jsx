@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 export const Calendar = ({ date }) => {
     return (
         <div className="card__date">

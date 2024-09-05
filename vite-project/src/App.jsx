@@ -6,12 +6,14 @@ import { PopBrowse } from './components/PopBrowse';
 import { PopNewCard } from './components/PopNewCard';
 import { PopUser } from './components/PopUser';
 import { cardList } from './data';
+import { GlobalStyle } from './global.styled.js';
+import { Wrapper } from './global.styled.js';
 
 
 function App() {
 
   const [cards, setCards] = useState(cardList)
-  const [isLoading, setIsloading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const addCard = () => {
     const newCard = {
@@ -25,24 +27,25 @@ function App() {
   }
 
   useEffect(() => {
-    setIsloading(true)
+    setIsLoading(true)
     setTimeout(() => {
-      setIsloading(false)
-    }, 2000)
+      setIsLoading(false)
+    }, 1000)
   }, []);
 
-  if (isLoading) {
-    return "Данные загружаются..."
-  }
-
   return (
-    <div className="wrapper">
+    <>
+    <GlobalStyle />
+
+    <Wrapper>
       <Header addCard={addCard} />
       {isLoading ? <p className="loader"> Данные загружаются...</p> : <Main cards={cards} />}
       <PopBrowse />
       <PopNewCard />
       <PopUser />
-    </div>
+    </Wrapper>
+    
+    </>
 
   )
 }

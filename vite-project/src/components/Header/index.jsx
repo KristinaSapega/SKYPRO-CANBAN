@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react"
+import * as S from "./header.styled"
+import { Container } from '../../global.styled.js'
 
 export const Header = ({addCard}) => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -8,9 +9,9 @@ export const Header = ({addCard}) => {
 	}
 	//console.log(isOpen)
 	return (
-		<header className="header">
-			<div className="container">
-				<div className="header__block">
+		<S.Header>
+			<Container>
+				<S.HeaderBlock>
 					<div className="header__logo _show _light">
 						<a href="" target="_self"><img src="images/logo.png" alt="logo" /></a>
 					</div>
@@ -18,8 +19,8 @@ export const Header = ({addCard}) => {
 						<a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
 					</div>
 					<nav className="header__nav">
-						<button onClick={addCard} className="header__btn-main-new _hover01" id="btnMainNew"><a>Создать новую задачу</a></button>
-						<a className="header__user _hover02" onClick={toggelOpenUser}>Ivan Ivanov</a>
+						<S.HeaderBtnMainNew onClick={addCard} id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew>
+						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>Ivan Ivanov</S.HeaderUser>
 						{isOpen &&
 							<div className="header__pop-user-set pop-user-set" id="user-set-target">
 								{/* <a href="">x</a> */}
@@ -33,9 +34,9 @@ export const Header = ({addCard}) => {
 							</div>
 							}
 					</nav>
-				</div>
-			</div>
-		</header>
+				</S.HeaderBlock>
+			</Container>
+		</S.Header>
 	)
 
 }

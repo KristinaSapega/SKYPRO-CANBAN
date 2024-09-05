@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import { Calendar } from "../Calendar"
 
-export const Card = ({themeClass, themeText, title, date, link}) => {
+export const Card = ({themeText, title, date, link}) => {
 
 	const themes = {
 		"Web Design": "_orange",
@@ -14,7 +13,7 @@ export const Card = ({themeClass, themeText, title, date, link}) => {
 									<div className="cards__card card">
 										<div className="card__group">
 											<div className={`card__theme ${theme}`}>
-												<p className={themeText}>{title}</p>
+												<p className={themeText}>{themeText}</p>
 											</div>
 											<a href="#popBrowse" target="_self">
 												<div className="card__btn">
