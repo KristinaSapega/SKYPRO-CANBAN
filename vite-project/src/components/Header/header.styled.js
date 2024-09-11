@@ -4,7 +4,7 @@ import { Hover01, Hover02 } from "../../global.styled.js";
 export const Header = styled.header `
 width: 100%;
 margin: 0 auto;
-background-color: #FFFFFF;
+background-color: ${({ theme }) => theme.headerBg};
 `;
 
 export const HeaderBlock = styled.div `
@@ -46,7 +46,7 @@ height: 20px;
   justify-content: center;
   font-size: 14px;
   line-height: 20px;
-  color: #565EEF;
+  color: ${({ theme }) => theme.userTextColor};
 
   &::after {
   content: "";
@@ -63,3 +63,4 @@ height: 20px;
 
   ${Hover02}
 `
+

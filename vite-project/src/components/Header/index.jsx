@@ -1,37 +1,45 @@
 import { useState } from "react"
 import * as S from "./header.styled"
 import { Container } from '../../global.styled.js'
+import { PopBtn, PopUserSet, PopUserSetMail, PopUserSetName, PopUserSetTheme } from "../PopUser/popUser.styled.js"
 
-export const Header = ({addCard}) => {
+export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const toggelOpenUser = () => {
 		setIsOpen(!isOpen)
+	}
+
+	const onChangeTheme = () => {
+		setChangeTheme(changeTheme === "light" ? "dark" : "light")
+
 	}
 	//console.log(isOpen)
 	return (
 		<S.Header>
 			<Container>
 				<S.HeaderBlock>
-					<div className="header__logo _show _light">
-						<a href="" target="_self"><img src="images/logo.png" alt="logo" /></a>
-					</div>
-					<div className="header__logo _dark">
-						<a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
+					<div className="header__logo">
+						<a href="" target="_self">
+							<img 
+							src={changeTheme === "light" ? "images/logo.png" : "images/logo_dark.png"}
+							alt="logo"
+							/>
+						</a>
 					</div>
 					<nav className="header__nav">
 						<S.HeaderBtnMainNew onClick={addCard} id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew>
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>Ivan Ivanov</S.HeaderUser>
 						{isOpen &&
-							<div className="header__pop-user-set pop-user-set" id="user-set-target">
+							<PopUserSet>
 								{/* <a href="">x</a> */}
-								<p className="pop-user-set__name">Ivan Ivanov</p>
-								<p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-								<div className="pop-user-set__theme">
+								<PopUserSetName>Ivan Ivanov</PopUserSetName>
+								<PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
+								<PopUserSetTheme>
 									<p>Темная тема</p>
-									<input type="checkbox" className="checkbox" name="checkbox" />
-								</div>
-								<button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-							</div>
+									<input checked={changeTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+								</PopUserSetTheme>
+								<PopBtn className="_hover03"><a href="#popExit">Выйти</a></PopBtn>
+							</PopUserSet>
 							}
 					</nav>
 				</S.HeaderBlock>

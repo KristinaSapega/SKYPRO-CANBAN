@@ -29,7 +29,7 @@ ul li {
   list-style: none;
 } */
 
-@keyframes card-animation {
+/* @keyframes card-animation {
   0% {
     height: 0;
     opacity: 0;
@@ -38,7 +38,7 @@ ul li {
     height: auto;
     opacity: 1;
   }
-}
+} */
 /* html,
 body {
   width: 100%;
@@ -89,7 +89,7 @@ body {
   display: block;
 }
 
-._orange {
+/* ._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
 }
@@ -102,12 +102,12 @@ body {
 ._purple {
   background-color: #E9D4FF;
   color: #9A48F1;
-}
-
+} */
+/* 
 ._gray {
   background: #94A6BE;
   color: #FFFFFF;
-}
+} */
 
 ._active-category {
   opacity: 1 !important;
@@ -796,10 +796,10 @@ body {
   z-index: 2;
 }
 
-.main {
+/* .main {
   width: 100%;
   background-color: #EAEEF6;
-}
+} */
 .main__block {
   width: 100%;
   margin: 0 auto;
@@ -832,13 +832,13 @@ body {
   display: block;
   position: relative;
 }
-.cards__item {
+/* .cards__item {
   padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
-}
-.cards__card {
+} */
+/* .cards__card {
   width: 220px;
   height: 130px;
   background-color: #FFFFFF;
@@ -848,17 +848,17 @@ body {
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
-}
+} */
 
-.card__group {
+/* .card__group {
   width: 100%;
   height: 20px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.card__theme {
+} */
+/* .card__theme {
   width: auto;
   height: 20px;
   padding: 5px 14px;
@@ -868,7 +868,7 @@ body {
   font-size: 10px;
   font-weight: 600;
   line-height: 10px;
-}
+} */
 .card__btn {
   width: 24px;
   height: 24px;
@@ -883,20 +883,20 @@ body {
   border-radius: 50%;
   background-color: #94A6BE;
 }
-.card__title {
+/* .card__title {
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;
-}
-.card__content {
+} */
+/* .card__content {
   height: 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-}
+} */
 .card__date {
   display: flex;
   align-items: center;

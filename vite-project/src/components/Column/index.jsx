@@ -1,7 +1,5 @@
 import { Card } from "../Card";
 
-
-// eslint-disable-next-line react/prop-types
 export const Column = ({ title, cards }) => {
     // const cardList = [
     //     { themeClass: '_green', themeText: 'Research', title: 'Название задачи', date: '30.10.23', link: '' },
@@ -15,7 +13,7 @@ export const Column = ({ title, cards }) => {
                 <p>{title}</p>
             </div>
             <div className="cards">
-                {cards.map((card, id) =>
+                {cards.map((card) =>
                     <Card
                         key={card.id}
                         themeClass={card.themeClass}

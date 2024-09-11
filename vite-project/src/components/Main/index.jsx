@@ -1,12 +1,14 @@
 import { Column } from "../Column";
 import { statusList } from "../../data";
+import * as S from "./main.styled"
+import { Container } from "../../global.styled";
 
 
 export const Main = ({cards}) => {
 
     return (
-        <main className="main">
-			<div className="container">
+        <S.Main>
+			<Container>
 				
 				<div className="main__block">
 					<div className="main__content">
@@ -19,7 +21,7 @@ export const Main = ({cards}) => {
 					</div>
 				
 				</div>
-			</div>
-		</main>
+			</Container>
+		</S.Main>
     )
 }

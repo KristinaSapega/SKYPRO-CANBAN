@@ -1,5 +1,4 @@
-import css from 'styled-components';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, {createGlobalStyle, css} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -31,6 +30,33 @@ width: 100%;
 margin: 0 auto;
 padding: 0 30px;
 `;
+
+export const Orange = css `
+background-color: ${({theme}) => theme.orangeBg};
+  color: ${({theme}) => theme.orangeText};
+`
+export const Green = css `
+background-color: ${({theme}) => theme.greenBg};
+  color: ${({theme}) => theme.greenText};
+`
+export const Purple = css `
+background-color: ${({theme}) => theme.purpleBg};
+  color: ${({theme}) => theme.purpleText};
+`
+export const Gray = css `
+background: ${({theme}) => theme.grayBg};
+  color: ${({theme}) => theme.grayText};
+`
+
+export const themeColor = ($color) => css `
+
+${() => $color === "Web Design" && Orange}
+${() => $color === "Research" && Green}
+${() => $color === "Copywriting" && Purple}
+${!$color && Gray}
+`
+
+
 
 export const Hover01 = css`
 &:hover {
