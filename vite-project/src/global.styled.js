@@ -11,7 +11,11 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     font-family: "Roboto", Arial, sans-serif;
-    color: #000;
+    color: #000; 
+  }
+
+  * {
+  transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;
   }
 `;
 
@@ -67,14 +71,24 @@ background-color: #33399b;
 export const Hover02 = css`
 &:hover {
 color: #33399b;
-
 }
 
 &::after {
 border-left-color: #33399b;
-  border-bottom-color: #33399b;
+border-bottom-color: #33399b;
   }
 
+`;
+
+export const Hover03 = css `
+&:hover {
+background-color: #33399b;
+color: #FFFFFF;
+}
+
+&:hover a {
+color: #ffffff;
+    }
 `;
 
 

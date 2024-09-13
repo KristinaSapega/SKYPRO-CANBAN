@@ -74,13 +74,13 @@ body {
   border-bottom-color: #33399b;
 } */
 
-._hover03:hover {
+/* ._hover03:hover {
   background-color: #33399b;
   color: #FFFFFF;
 }
 ._hover03:hover a {
   color: #FFFFFF;
-}
+} */
 
 .pop-user-set:target,
 .pop-exit:target,
@@ -809,13 +809,13 @@ body {
   width: 100%;
   display: flex;
 }
-.main__column {
+/* .main__column {
   width: 20%;
   margin: 0 auto;
   display: block;
-}
+} */
 
-.column__title {
+/* .column__title {
   padding: 0 10px;
   margin: 15px 0;
 }
@@ -825,7 +825,7 @@ body {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-}
+} */
 
 .cards {
   width: 100%;

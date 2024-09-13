@@ -73,27 +73,15 @@ display: flex;
 `
 
 export const PopBtn = styled.button `
-appearance: auto;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: buttonface;
-    margin: 0em;
-    padding-block: 1px;
-    padding-inline: 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
-`
+ width: 72px;
+  height: 30px;
+  background: transparent;
+  color: #565EEF;
+  border-radius: 4px;
+  border: 1px solid #565EEF;
+
+  a {
+    color: #565EEF;
+  }
+`;
 
