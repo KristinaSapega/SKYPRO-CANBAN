@@ -19,6 +19,10 @@ export const light = {
     popUserSetMail: "#94A6BE",
     popTheme: "#000",
     checkbox: "#94A6BE",
+    popExitBlog: "#FFFFFF",
+    popExitTitle: "#000000",
+    popExiteBtnNo: "#565eef",
+    popExiteBtnBorder: "#565eef",
 
 }
 
@@ -43,5 +47,10 @@ export const dark = {
     popUserSetMail: "#94A6BE",
     popTheme: "#FFFFFF",
     checkbox: "#565EEF",
+    popExitBlog: "#4E5566",
+    popExitTitle: "#FFFFFF",
+    popExiteBtnNo: "#FFFFFF",
+    popExiteBtnBorder: "#FFFFFF",
+
 
 }
