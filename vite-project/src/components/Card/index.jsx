@@ -1,21 +1,21 @@
-/* eslint-disable react/prop-types */
 import { Calendar } from "../Calendar"
+import * as S from "./card.styled"
 
-export const Card = ({themeClass, themeText, title, date, link}) => {
+export const Card = ({themeText, title, date, link}) => {
 
-	const themes = {
-		"Web Design": "_orange",
-		"Research": "_green",
-		"Copywriting": "_purple",
-	}
-	const theme = themes[themeText] || " ";
+	// const themes = {
+	// 	"Web Design": "_orange",
+	// 	"Research": "_green",
+	// 	"Copywriting": "_purple",
+	// }
+	// const theme = themes[themeText] || " ";
     return (
-        <div className="cards__item">
-									<div className="cards__card card">
-										<div className="card__group">
-											<div className={`card__theme ${theme}`}>
-												<p className={themeText}>{title}</p>
-											</div>
+        <S.CardsItem>
+									<S.Card>
+										<S.CardGroup>
+											<S.CardTheme $color={themeText}>
+												<p className={themeText}>{themeText}</p>
+											</S.CardTheme>
 											<a href="#popBrowse" target="_self">
 												<div className="card__btn">
 													<div></div>
@@ -23,15 +23,15 @@ export const Card = ({themeClass, themeText, title, date, link}) => {
 													<div></div>
 												</div>
 											</a>
-										</div>
-										<div className="card__content">
+										</S.CardGroup>
+										<S.CardContent>
 											<a href={link} target="_blank">
-												<h3 className="card__title">{title}</h3>
+												<S.CardTitle>{title}</S.CardTitle>
 											</a>
 											<Calendar date={date}/>
-										</div>
-									</div>
-								</div>
+										</S.CardContent>
+									</S.Card>
+								</S.CardsItem>
         
     )
 }
