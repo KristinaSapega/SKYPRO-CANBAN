@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom"
 import { Calendar } from "../Calendar"
 import * as S from "./card.styled"
 
-export const Card = ({themeText, title, date, link}) => {
+export const Card = ({themeText, title, date, link, id}) => {
 
 	// const themes = {
 	// 	"Web Design": "_orange",
@@ -16,13 +17,13 @@ export const Card = ({themeText, title, date, link}) => {
 											<S.CardTheme $color={themeText}>
 												<p className={themeText}>{themeText}</p>
 											</S.CardTheme>
-											<a href="#popBrowse" target="_self">
+											<Link to={`/card/${id}`}>
 												<div className="card__btn">
 													<div></div>
 													<div></div>
 													<div></div>
 												</div>
-											</a>
+											</Link>
 										</S.CardGroup>
 										<S.CardContent>
 											<a href={link} target="_blank">

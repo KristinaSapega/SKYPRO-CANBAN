@@ -17,6 +17,7 @@ export const Column = ({ title, cards }) => {
                 {cards.map((card) =>
                     <Card
                         key={card.id}
+                        id={card.id}
                         themeClass={card.themeClass}
                         themeText={card.themeText}
                         title={card.title}
