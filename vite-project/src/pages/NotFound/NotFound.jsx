@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
 import { ModalBtn, ModalFormGroup, ModalTtl } from "../../common.styled"
 import { Container, Wrapper } from "../../global.styled"
+import { routes } from "../../router/routes"
 
 export const NotFound = () => {
     return (
@@ -7,7 +9,7 @@ export const NotFound = () => {
         <Container>
         <ModalTtl>404</ModalTtl>
         <ModalFormGroup>К сожалению, страница, которую вы ищете, не найдена.</ModalFormGroup>
-        <ModalBtn>Вернуться на главную</ModalBtn>
+        <ModalBtn><Link to={routes.main}> Вернуться на главную</Link></ModalBtn>
     </Container>
     </Wrapper>
     )
