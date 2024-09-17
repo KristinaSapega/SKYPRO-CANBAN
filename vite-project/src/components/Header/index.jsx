@@ -2,6 +2,8 @@ import { useState } from "react"
 import * as S from "./header.styled"
 import { Container } from '../../global.styled.js'
 import { PopBtn, PopUserSet, PopUserSetMail, PopUserSetName, PopUserSetTheme } from "../PopUser/popUser.styled.js"
+import { Link } from "react-router-dom"
+import { routes } from "../../router/routes.js"
 
 export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -12,7 +14,7 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 	const onChangeTheme = () => {
 		setChangeTheme(changeTheme === "light" ? "dark" : "light")
 
-	}
+	}	
 	//console.log(isOpen)
 	return (
 		<S.Header>
@@ -38,7 +40,7 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 									<p>Темная тема</p>
 									<input checked={changeTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
 								</PopUserSetTheme>
-								<PopBtn className="_hover03"><a href="#popExit">Выйти</a></PopBtn>
+								<PopBtn className="_hover03"><Link to={routes.exite}>Выйти</Link></PopBtn>
 							</PopUserSet>
 							}
 					</nav>
