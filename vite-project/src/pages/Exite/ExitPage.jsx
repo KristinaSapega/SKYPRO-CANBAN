@@ -1,5 +1,5 @@
 import { PopUser } from "../../components/PopUser"
 
-export const ExitPage = (setIsAuth) => {
-    return <PopUser setIsAuth={setIsAuth}/>
+export const ExitPage = (setUser) => {
+    return <PopUser setUser={setUser}/>
 }
