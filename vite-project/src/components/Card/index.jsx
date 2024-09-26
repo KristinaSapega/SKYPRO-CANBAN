@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { Calendar } from "../Calendar"
 import * as S from "./card.styled"
 
-export const Card = ({topic, title, date, link, _id}) => {
+export const Card = ({ topic, title, date, link, _id}) => {
 
 	// const themes = {
 	// 	"Web Design": "_orange",
@@ -15,7 +15,7 @@ export const Card = ({topic, title, date, link, _id}) => {
 									<S.Card>
 										<S.CardGroup>
 											<S.CardTheme $color={topic}>
-												<p className={topic}>{topic}</p>
+												<p> {topic} </p>
 											</S.CardTheme>
 											<Link to={`/card/${_id}`}>
 												<div className="card__btn">
