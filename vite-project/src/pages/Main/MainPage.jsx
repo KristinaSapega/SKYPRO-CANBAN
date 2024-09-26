@@ -19,7 +19,7 @@ export const MainPage = ({ changeTheme, setChangeTheme, user, setUser }) => {
 
         const newCard = {
             id: cards.length + 1,
-            themeText: "Web Design",
+            topic: "Web Design",
             title: "Новая задача",
             date: "30.10.23",
             status: "Без статуса",

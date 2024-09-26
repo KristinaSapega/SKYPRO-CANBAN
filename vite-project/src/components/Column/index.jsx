@@ -19,7 +19,7 @@ export const Column = ({ title, cards }) => {
                         key={card._id}
                         id={card._id}
                         themeClass={card.themeClass}
-                        themeText={card.themeText}
+                        topic={card.topic}
                         title={card.title}
                         date={card.date}
                         link={card.link}
