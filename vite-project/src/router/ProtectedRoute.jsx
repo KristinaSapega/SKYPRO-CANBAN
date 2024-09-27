@@ -2,9 +2,9 @@ import { Navigate, Outlet } from "react-router-dom"
 import { routes } from "./routes"
 
 
-export const ProtectedRoute = ({isAuth}) => {
+export const ProtectedRoute = ({user}) => {
     return (
-        isAuth ? <Outlet/> : <Navigate to={routes.login}/>
+        user ? <Outlet/> : <Navigate to={routes.login}/>
 
     )
 }

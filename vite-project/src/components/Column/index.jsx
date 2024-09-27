@@ -16,10 +16,10 @@ export const Column = ({ title, cards }) => {
             <div className="cards">
                 {cards.map((card) =>
                     <Card
-                        key={card.id}
-                        id={card.id}
+                        key={card._id}
+                        id={card._id}
                         themeClass={card.themeClass}
-                        themeText={card.themeText}
+                        topic={card.topic}
                         title={card.title}
                         date={card.date}
                         link={card.link}

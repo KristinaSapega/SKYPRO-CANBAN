@@ -2,10 +2,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { routes } from "../../router/routes"
 import { PopExit, PopExitBlog, PopExitButtonNo, PopExitButtonYes, PopExitContainer, PopExitFormGroup, PopExitTitle } from "./popUser.styled"
 
-export const PopUser = (setIsAuth) => {
+export const PopUser = (setUser) => {
 	const nav = useNavigate()
 	const handleLogout = () => {
-		setIsAuth(false)
+		setUser(false)
 		nav(routes.login)
 	}
     return (
