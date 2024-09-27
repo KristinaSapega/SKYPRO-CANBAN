@@ -543,8 +543,8 @@ body {
   white-space: nowrap;
 }
 
-.pop-browse {
-  /* display: none; */
+/* .pop-browse {
+  display: none;
   width: 100%;
   height: 100%;
   min-width: 375px;
@@ -553,8 +553,8 @@ body {
   top: 0;
   left: 0;
   z-index: 7;
-}
-.pop-browse__container {
+} */
+/* .pop-browse__container {
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -564,8 +564,8 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
-}
-.pop-browse__block {
+} */
+/* .pop-browse__block {
   display: block;
   margin: 0 auto;
   background-color: #FFFFFF;
@@ -579,7 +579,7 @@ body {
 .pop-browse__content {
   display: block;
   text-align: left;
-}
+} */
 .pop-browse__content .categories__theme {
   opacity: 1;
 }
@@ -590,29 +590,29 @@ body {
 .pop-browse__content .theme-top {
   display: block;
 }
-.pop-browse__top-block {
+/* .pop-browse__top-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
-}
-.pop-browse__ttl {
+} */
+/* .pop-browse__ttl {
   color: #000;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
-}
-.pop-browse__wrap {
+} */
+/* .pop-browse__wrap {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-}
-.pop-browse__form {
+} */
+/* .pop-browse__form {
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-}
+} */
 .pop-browse__btn-browse, .pop-browse__btn-edit {
   display: flex;
   flex-wrap: wrap;
@@ -628,10 +628,10 @@ body {
   margin-right: 8px;
 }
 
-.form-browse__block {
+/* .form-browse__block {
   display: flex;
   flex-direction: column;
-}
+} */
 .form-browse__area {
   max-width: 370px;
   width: 100%;
@@ -664,15 +664,15 @@ body {
 .status {
   margin-bottom: 11px;
 }
-.status__p {
+/* .status__p {
   margin-bottom: 14px;
-}
-.status__themes {
+} */
+/* .status__themes {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-}
+} */
 .status__theme {
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
