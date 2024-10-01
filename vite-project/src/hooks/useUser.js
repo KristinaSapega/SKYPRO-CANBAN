@@ -3,8 +3,8 @@ import { useState } from "react";
 const getUserFromLocalStorage = () => {
     try {
         const user = JSON.parse(localStorage.getItem("user"));
-        return user && user.token ? user : null; 
-    }catch {
+        return user || null; 
+    } catch {
         return null;
     }
 };
@@ -14,6 +14,7 @@ export const useUser = () => {
 
     const login = (userData) => {
         setUser(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
     };
 
     const logout = () => {
@@ -21,5 +22,5 @@ export const useUser = () => {
         localStorage.removeItem("user");
     };
 
-    return (user, login, logout, setUser)
-}
+    return {user, login, logout, setUser};
+};

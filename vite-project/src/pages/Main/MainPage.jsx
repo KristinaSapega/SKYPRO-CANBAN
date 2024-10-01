@@ -8,12 +8,16 @@ import { PopNewCard } from '../../components/PopNewCard';
 import { Wrapper } from "../../global.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
+import { useUserContext } from "../../context/useUserContext.js";
 
 
-export const MainPage = ({ changeTheme, setChangeTheme, user, setUser }) => {
-    const [cards, setCards] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState("")
+export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
+
+    const {user} = useUserContext();
+
+    const [cards, setCards] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
 
     const addCard = () => {
 
@@ -28,22 +32,23 @@ export const MainPage = ({ changeTheme, setChangeTheme, user, setUser }) => {
     }
 
     useEffect(() => {
-        getTasks(user.token)
-        .then((resp) => {
-            setCards(resp.tasks)
-            
-        })
-        .catch((error) => {
-            setError("Ошибка загрузки данных:" + error.message);
-        })
-        .finally(() => {
-            setIsLoading(false)
-        })
-        //setIsLoading(true)
-        // setTimeout(() => {
-        //     setIsLoading(false)
-        // }, 1000)
-    }, []);
+        console.log(user)
+        if (user && user.token) {
+            getTasks(user.token)
+            .then((resp) => {
+                setCards(resp.tasks);
+            })
+            .catch((error) => {
+                setError("Ошибка загрузки данных: " + error.message);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+        } else {
+            setError("Пользователь не авторизован или отсутствует токен.");
+            setIsLoading(false);
+        }
+    }, [user]);
 
     return (
 
