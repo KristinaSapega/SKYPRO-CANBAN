@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { Main } from "../../components/Main";
 //import { PopBrowse } from '../../components/PopBrowse';
-import { PopNewCard } from '../../components/PopNewCard';
+import { PopNewCard } from '../../components/PopNewCard/popNewCard.jsx';
 //import { PopUser } from '../../components/PopUser';
 //import { cardList } from "../../data.js";
 import { Wrapper } from "../../global.styled.js";
@@ -20,7 +20,6 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
     const [error, setError] = useState("");
 
     const addCard = () => {
-
         const newCard = {
             id: cards.length + 1,
             topic: "Web Design",

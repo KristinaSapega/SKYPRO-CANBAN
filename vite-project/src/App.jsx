@@ -10,14 +10,14 @@ import { UserProvider } from './context/UserContext.jsx';
 function App() {
   const [changeTheme, setChangeTheme] = useState("light")
 
-  
+
   return (
     <UserProvider>
-    <ThemeProvider theme={changeTheme === "light" ? light : dark}>
-    <GlobalStyle />
-    <AppRoutes changeTheme={changeTheme} setChangeTheme={setChangeTheme} />
-    
-    </ThemeProvider>
+      <ThemeProvider theme={changeTheme === "light" ? light : dark}>
+        <GlobalStyle />
+        <AppRoutes changeTheme={changeTheme} setChangeTheme={setChangeTheme} />
+
+      </ThemeProvider>
     </UserProvider>
   )
 }

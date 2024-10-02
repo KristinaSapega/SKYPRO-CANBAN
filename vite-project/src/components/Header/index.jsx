@@ -9,6 +9,7 @@ import { useUserContext } from "../../context/useUserContext.js"
 export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { user, setUser } = useUserContext();
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 	const toggelOpenUser = () => {
@@ -19,6 +20,11 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 		setChangeTheme(changeTheme === "light" ? "dark" : "light")
 
 	};
+
+	const openModel = () => {
+
+
+	}
 
 	const handleLogout = () => {
         setUser(null);  // Очищаем пользователя при выходе
@@ -39,7 +45,12 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 						</a>
 					</div>
 					<nav className="header__nav">
-						<S.HeaderBtnMainNew onClick={addCard} id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew>
+					<Link to={routes.add}>
+						<S.HeaderBtnMainNew onClick={openModel} value={isModalOpen}><Link to={routes.add}>
+						Создать новую задачу</Link>
+						</S.HeaderBtnMainNew>
+						</Link>
+						
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>{user.name}</S.HeaderUser>
 						{isOpen &&
 							<PopUserSet>

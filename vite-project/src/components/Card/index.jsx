@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
-import { Calendar } from "../Calendar"
 import * as S from "./card.styled"
+import { format } from "date-fns"
 
 export const Card = ({ topic, title, date, link, _id}) => {
+
+	const formattedDate = format(new Date(date), 'dd.MM.yy');
 
 	// const themes = {
 	// 	"Web Design": "_orange",
@@ -29,7 +31,7 @@ export const Card = ({ topic, title, date, link, _id}) => {
 											<a href={link} target="_blank">
 												<S.CardTitle>{title}</S.CardTitle>
 											</a>
-											<Calendar date={date}/>
+											<S.CardDateText>{formattedDate}</S.CardDateText>
 										</S.CardContent>
 									</S.Card>
 								</S.CardsItem>
