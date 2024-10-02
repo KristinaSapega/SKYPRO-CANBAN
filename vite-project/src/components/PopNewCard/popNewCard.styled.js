@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PopNewCard = styled.div `
-display: none;
+/* display: none; */
  width: 100%;
   min-width: 375px;
   height: 100%;
@@ -156,3 +156,25 @@ export const CalendarTtl = styled.p `
   font-weight: 600;
   line-height: 1;
 `;
+
+export const PopNewCardCategories = styled.div `
+margin-bottom: 20px;
+
+`;
+
+export const CategoriesPSubttl = styled.p`
+margin-bottom: 14px;
+font-size: 14px;
+font-weight: 600;
+line-height: 1;
+`;
+
+export const CategoriesThemes = styled.div `
+display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+
+

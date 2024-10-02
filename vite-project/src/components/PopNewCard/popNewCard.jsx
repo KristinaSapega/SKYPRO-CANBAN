@@ -25,7 +25,7 @@ export const PopNewCard = ({onClose}) => {
 									</S.FormNewBlock>
 									<S.FormNewBlock>
 										<S.PopNewCardLabel htmlFor="textArea">Описание задачи</S.PopNewCardLabel>
-										<S.FormNewArea  type="text" id="textArea"  placeholder="Введите описание задачи..." />
+										<S.FormNewArea id="textArea"  placeholder="Введите описание задачи..." />
 									</S.FormNewBlock>
 								</S.PopNewCardForm>
 								<S.Calendar>
@@ -39,9 +39,9 @@ export const PopNewCard = ({onClose}) => {
 
 									</S.Calendar>
 								</S.PopNewCardWrap>
-							<div className="pop-new-card__categories categories">
-								<p className="categories__p subttl">Категория</p>
-								<div className="categories__themes">
+							<S.PopNewCardCategories>
+								<S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
+								<S.CategoriesThemes>
 									<div className="categories__theme _orange _active-category">
 										<p className="_orange">Web Design</p>
 									</div>
@@ -51,8 +51,8 @@ export const PopNewCard = ({onClose}) => {
 									<div className="categories__theme _purple">
 										<p className="_purple">Copywriting</p>
 									</div>
-								</div>
-							</div>
+								</S.CategoriesThemes>
+							</S.PopNewCardCategories>
 							<button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
 						</S.PopNewCardContent>
 					</S.PopNewCardBlock>
