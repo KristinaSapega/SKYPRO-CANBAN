@@ -52,6 +52,7 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
     return (
 
         <Wrapper>
+            <Outlet />
             <Header addCard={addCard} setUser={setUser} setChangeTheme={setChangeTheme} changeTheme={changeTheme} />
             {isLoading ? (
                 <p className="loader"> Данные загружаются...</p> 

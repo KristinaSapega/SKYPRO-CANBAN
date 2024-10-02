@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PopNewCard = styled.div `
-/* display: none; */
+display: none;
  width: 100%;
   min-width: 375px;
   height: 100%;
@@ -59,6 +59,18 @@ color: #000;
   font-weight: 600;
   line-height: 24px;
   margin-bottom: 20px;
+`;
+
+export const PopNewCardClose = styled.a `
+ position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #94a6be;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export const PopNewCardWrap = styled.div `

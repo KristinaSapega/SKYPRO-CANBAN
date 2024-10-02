@@ -1,9 +1,13 @@
-
-
+import { useState } from "react";
 import { Calendar } from "../Calendar";
 import * as S from "./popNewCard.styled"
 
-export const PopNewCard = () => {
+export const PopNewCard = ({onClose}) => {
+	const [date, setDate] = useState(null);
+
+	const onCloseModal = () => {
+		onClose();
+	};
 	
 	 
     return (
@@ -12,7 +16,7 @@ export const PopNewCard = () => {
 					<S.PopNewCardBlock>
 						<S.PopNewCardContent>
 							<S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
-							<a href="#" className="pop-new-card__close">&#10006;</a>
+							<S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
 							<S.PopNewCardWrap>
 								<S.PopNewCardForm action="#">
 									<S.FormNewBlock>
@@ -26,12 +30,13 @@ export const PopNewCard = () => {
 								</S.PopNewCardForm>
 								<S.Calendar>
 									<S.CalendarTtl>Даты</S.CalendarTtl>
-									<Calendar  />
+									<Calendar onChange={setDate} selected={date}  />
 									
 										<div className="calendar__period">
 											<p className="calendar__p date-end">
 												Выберите срок исполнения <span className="date-control"></span></p>
 										</div>
+
 									</S.Calendar>
 								</S.PopNewCardWrap>
 							<div className="pop-new-card__categories categories">

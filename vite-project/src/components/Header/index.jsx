@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { routes } from "../../router/routes.js"
 import { useUserContext } from "../../context/useUserContext.js"
 
-export const Header = ({addCard, changeTheme, setChangeTheme}) => {
+export const Header = ({changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { user, setUser } = useUserContext();
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,9 +22,9 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 	};
 
 	const openModel = () => {
+		setIsModalOpen(true);
+	};
 
-
-	}
 
 	const handleLogout = () => {
         setUser(null);  // Очищаем пользователя при выходе
@@ -45,11 +45,11 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 						</a>
 					</div>
 					<nav className="header__nav">
-					<Link to={routes.add}>
-						<S.HeaderBtnMainNew onClick={openModel} value={isModalOpen}><Link to={routes.add}>
-						Создать новую задачу</Link>
+					
+						<S.HeaderBtnMainNew onClick={openModel}><Link to={routes.add}>
+              			Создать новую задачу
+            			</Link>
 						</S.HeaderBtnMainNew>
-						</Link>
 						
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>{user.name}</S.HeaderUser>
 						{isOpen &&
@@ -67,6 +67,8 @@ export const Header = ({addCard, changeTheme, setChangeTheme}) => {
 					</nav>
 				</S.HeaderBlock>
 			</Container>
+			{/* Render PopNewCard*/}
+			{isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />}
 		</S.Header>
 	)
 

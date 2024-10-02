@@ -11,6 +11,7 @@ import { CardPage } from "../pages/CardPage/CardPage.jsx";
 import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../pages/AddCardPage/AddCardPage.jsx";
 import "react-day-picker/dist/style.css";
+import { PopBrowse } from "../components/PopBrowse/index.jsx";
 
 
 
@@ -25,6 +26,7 @@ export const AppRoutes = ({ changeTheme, setChangeTheme }) => {
                         <Route path={routes.exite} element={<ExitPage />} />
                         <Route path={routes.card} element={<CardPage />} />
                         <Route path={routes.add} element={<NewCardPage />} />
+                        <Route path={routes.card + '/:cardId'} element={<PopBrowse />} />
 
                     </Route>
                 </Route>
