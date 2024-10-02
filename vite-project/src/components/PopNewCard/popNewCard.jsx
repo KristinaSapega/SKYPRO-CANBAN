@@ -1,42 +1,39 @@
-import { useState } from "react"
+
+
 import { Calendar } from "../Calendar";
+import * as S from "./popNewCard.styled"
 
 export const PopNewCard = () => {
-	const [selectDate, setSelectDate] = useState(null);
-	 const handleDateSelect = (date) => {
-		setSelectDate(date);
-	 }
+	
+	 
     return (
-        <div className="pop-new-card" id="popNewCard">
-				<div className="pop-new-card__container">
-					<div className="pop-new-card__block">
-						<div className="pop-new-card__content">
-							<h3 className="pop-new-card__ttl">Создание задачи</h3>
+        <S.PopNewCard>
+				<S.PopNewCardContainer>
+					<S.PopNewCardBlock>
+						<S.PopNewCardContent>
+							<S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
 							<a href="#" className="pop-new-card__close">&#10006;</a>
-							<div className="pop-new-card__wrap">
-								<form className="pop-new-card__form form-new" id="formNewCard" action="#">
-									<div className="form-new__block">
-										<label htmlFor="formTitle" className="subttl">Название задачи</label>
-										<input className="form-new__input" type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
-									</div>
-									<div className="form-new__block">
-										<label htmlFor="textArea" className="subttl">Описание задачи</label>
-										<textarea className="form-new__area" name="text" id="textArea"  placeholder="Введите описание задачи..."></textarea>
-									</div>
-								</form>
-								<div className="pop-new-card__calendar calendar">
-									<Calendar onDateSelect={handleDateSelect} />
-									<input 
-									type="hidden"
-									id="datepick_value"
-                                    value={selectDate ? selectDate.toLocaleDateString("ru-RU") : ""}
-                                />
+							<S.PopNewCardWrap>
+								<S.PopNewCardForm action="#">
+									<S.FormNewBlock>
+										<S.PopNewCardLabel htmlFor="formTitle" >Название задачи</S.PopNewCardLabel>
+										<S.FormNewInput id="formTitle" placeholder="Введите название задачи..." autoFocus />
+									</S.FormNewBlock>
+									<S.FormNewBlock>
+										<S.PopNewCardLabel htmlFor="textArea">Описание задачи</S.PopNewCardLabel>
+										<S.FormNewArea  type="text" id="textArea"  placeholder="Введите описание задачи..." />
+									</S.FormNewBlock>
+								</S.PopNewCardForm>
+								<S.Calendar>
+									<S.CalendarTtl>Даты</S.CalendarTtl>
+									<Calendar  />
+									
 										<div className="calendar__period">
 											<p className="calendar__p date-end">
-												Выберите срок исполнения <span className="date-control">{selectDate ? selectDate.toLocaleDateString("ru-RU") : "Не выбрана"}</span>.</p>
+												Выберите срок исполнения <span className="date-control"></span></p>
 										</div>
-									</div>
-								</div>
+									</S.Calendar>
+								</S.PopNewCardWrap>
 							<div className="pop-new-card__categories categories">
 								<p className="categories__p subttl">Категория</p>
 								<div className="categories__themes">
@@ -52,9 +49,9 @@ export const PopNewCard = () => {
 								</div>
 							</div>
 							<button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
-						</div>
-					</div>
-				</div>
-			</div>
+						</S.PopNewCardContent>
+					</S.PopNewCardBlock>
+				</S.PopNewCardContainer>
+			</S.PopNewCard>
     );
 };

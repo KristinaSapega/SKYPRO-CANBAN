@@ -10,6 +10,7 @@ import { ExitPage } from "../pages/Exite/ExitPage.jsx";
 import { CardPage } from "../pages/CardPage/CardPage.jsx";
 import { UserProvider } from "../context/UserContext.jsx";
 import { NewCardPage } from "../pages/AddCardPage/AddCardPage.jsx";
+import "react-day-picker/dist/style.css";
 
 
 
