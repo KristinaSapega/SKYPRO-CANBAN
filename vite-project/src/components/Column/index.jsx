@@ -1,7 +1,7 @@
 import { Card } from "../Card";
 import * as S from "./column.styled";
 
-export const Column = ({ title, cards }) => {
+export const Column = ({ title, tasks }) => {
     // const cardList = [
     //     { themeClass: '_green', themeText: 'Research', title: 'Название задачи', date: '30.10.23', link: '' },
     //     { themeClass: '_orange', themeText: 'Web Design', title: 'Название задачи', date: '30.10.23', link: '' },
@@ -14,7 +14,7 @@ export const Column = ({ title, cards }) => {
                 <p>{title}</p>
             </S.ColumnTitle>
             <div className="cards">
-                {cards.map((card) =>
+                {tasks.map((card) =>
                     <Card
                         key={card._id}
                         id={card._id}

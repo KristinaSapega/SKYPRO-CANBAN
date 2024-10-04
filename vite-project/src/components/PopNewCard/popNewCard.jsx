@@ -1,14 +1,25 @@
 import { useState } from "react";
 import { Calendar } from "../Calendar";
 import * as S from "./popNewCard.styled"
+import { routes } from "../../router/routes";
+import { Link } from "react-router-dom";
+import { useTasksContext } from "../../context/useTasksContext";
 
-export const PopNewCard = ({onClose}) => {
+export const PopNewCard = () => {
 	const [date, setDate] = useState(null);
-
-	const onCloseModal = () => {
-		onClose();
-	};
 	
+	const {tasks, setTasks} = useTasksContext();
+
+	const addTask = () => {
+        const newTask = {
+            id: tasks.length + 1,
+            topic: "Web Design",
+            title: "Новая задача",
+            date: new Date(),
+            status: "Без статуса",
+        }
+        setTasks([...tasks, newTask])
+    }
 	 
     return (
         <S.PopNewCard>
@@ -16,7 +27,9 @@ export const PopNewCard = ({onClose}) => {
 					<S.PopNewCardBlock>
 						<S.PopNewCardContent>
 							<S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
-							<S.PopNewCardClose onClick={onCloseModal}>&#10006;</S.PopNewCardClose>
+							<Link to={routes.main}>
+							<S.PopNewCardClose >&#10006;</S.PopNewCardClose>
+							</Link>
 							<S.PopNewCardWrap>
 								<S.PopNewCardForm action="#">
 									<S.FormNewBlock>
@@ -53,7 +66,7 @@ export const PopNewCard = ({onClose}) => {
 									</div>
 								</S.CategoriesThemes>
 							</S.PopNewCardCategories>
-							<button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
+							<button className="form-new__create _hover01" id="btnCreate" onClick={addTask}>Создать задачу</button>
 						</S.PopNewCardContent>
 					</S.PopNewCardBlock>
 				</S.PopNewCardContainer>

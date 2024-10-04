@@ -45,12 +45,12 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 						</a>
 					</div>
 					<nav className="header__nav">
-					
-						<S.HeaderBtnMainNew onClick={openModel}><Link to={routes.add}>
-              			Создать новую задачу
-            			</Link>
-						</S.HeaderBtnMainNew>
+
 						
+						<S.HeaderBtnMainNew to={routes.add} >
+              			Создать новую задачу
+						</S.HeaderBtnMainNew>
+				
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>{user.name}</S.HeaderUser>
 						{isOpen &&
 							<PopUserSet>
@@ -68,7 +68,7 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 				</S.HeaderBlock>
 			</Container>
 			{/* Render PopNewCard*/}
-			{isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />}
+			{/* {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />} */}
 		</S.Header>
 	)
 

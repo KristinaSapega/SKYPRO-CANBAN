@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Hover01, Hover02 } from "../../global.styled.js";
+import { Link } from "react-router-dom";
 
 export const Header = styled.header `
 width: 100%;
@@ -19,7 +20,10 @@ left: 0;
 padding: 0 10px;
 `;
 
-export const HeaderBtnMainNew = styled.button `
+export const HeaderBtnMainNew = styled (Link) `
+display: flex;
+align-items: center;
+justify-content: center;
 width: 178px;
   height: 30px;
   border-radius: 4px;
@@ -30,10 +34,11 @@ width: 178px;
   line-height: 1;
   font-weight: 500;
   margin-right: 20px;
+  cursor: pointer;
 
-  a {
+  /* a {
     color: #FFFFFF;
-  }
+  } */
 
   ${Hover01}
 `;

@@ -14,6 +14,11 @@ export const GlobalStyle = createGlobalStyle`
     color: #000; 
   }
 
+  a, a:visited {
+    text-decoration: none;
+
+  }
+
   * {
   transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;
   }
