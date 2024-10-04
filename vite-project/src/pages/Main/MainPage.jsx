@@ -71,7 +71,6 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
 
             {isModalOpen && <PopNewCard onClose={closeModal} />}
             {/* <PopBrowse /> */}
-            {/* <PopNewCard /> */}
             {/* <PopUser /> */}
             <Outlet />
         </Wrapper>

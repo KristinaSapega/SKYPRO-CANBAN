@@ -13,13 +13,14 @@ export const getTasks = async (token) => {
     return response.json();
 };
 
-export const addTask = async (token) => {
+export const addTask = async (newCard, token) => {
     const response = await fetch (apiURL, {
         method: "POST",
         headers: {
-            Authorization:  `Bearer ${token}`
+            Authorization:  `Bearer ${token}`,
+            "Content-Type": "application/json" 
         },
-        body: JSON.stringify()
+        body: JSON.stringify(newCard)
     });
 
     if (!response.ok) {

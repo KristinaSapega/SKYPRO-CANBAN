@@ -2,24 +2,75 @@ import { useState } from "react";
 import { Calendar } from "../Calendar";
 import * as S from "./popNewCard.styled"
 import { routes } from "../../router/routes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useTasksContext } from "../../context/useTasksContext";
+import { addTask as addTaskApi } from "../../api/tasks";
+import { useUserContext } from "../../context/useUserContext";
 
 export const PopNewCard = () => {
+	const {user} = useUserContext();
+
+	const nav = useNavigate();
+
 	const [date, setDate] = useState(null);
+
+	const [error, setError] = useState("");
 	
 	const {tasks, setTasks} = useTasksContext();
+ 
+	const [newTask, setNewTask] = useState ({
+		title: "",
+		status: "Без статуса",
+		description: "",
+		topic: "",
+	});
 
-	const addTask = () => {
-        const newTask = {
-            id: tasks.length + 1,
-            topic: "Web Design",
-            title: "Новая задача",
-            date: new Date(),
-            status: "Без статуса",
-        }
-        setTasks([...tasks, newTask])
-    }
+	const newCard = {
+		title: newTask.title,
+		topic: newTask.topic,
+		description: newTask.description ? newTask.description.trim() : "",
+		date: date || new Date(),
+		
+	};
+
+	const addNewTask = async (e) => {
+		e.preventDefault();
+
+		if (newTask.title === "") {
+			setError("Введите название задачи");
+			return;
+		}
+		if (newTask.description === "") {
+			setError("Введите описание задачи");
+			return;
+		}
+		// if (!date) {
+		// 	setError("Выберите срок исполнения");
+		// 	return;
+		// }
+		// if (newTask.topic === "") {
+		// 	setError("Выберите категорию задачи");
+		// 	return;
+		// }
+		try {
+			await addTaskApi(newCard, user.token);
+				setTasks([...tasks, res.task]); //Обновляем состояние задач
+				nav(routes.main);
+		}catch (error) {
+			setError(error.message)
+		}
+	};
+
+	// const addTask = () => {
+    //     const newTask = {
+    //         id: tasks.length + 1,
+    //         topic: "Web Design",
+    //         title: "Новая задача",
+    //         date: date || new Date(),
+    //         status: "Без статуса",
+    //     }
+    //     setTasks([...tasks, newTask])
+    // }
 	 
     return (
         <S.PopNewCard>
@@ -34,11 +85,27 @@ export const PopNewCard = () => {
 								<S.PopNewCardForm action="#">
 									<S.FormNewBlock>
 										<S.PopNewCardLabel htmlFor="formTitle" >Название задачи</S.PopNewCardLabel>
-										<S.FormNewInput id="formTitle" placeholder="Введите название задачи..." autoFocus />
+										<S.FormNewInput 
+										onChange={(e) =>
+											setNewTask({...newTask, title: e.target.value})
+										}
+										type="text"
+										name="name"
+										id="formTitle" 
+										placeholder="Введите название задачи..." 
+										value={newTask.title}
+										autoFocus />
 									</S.FormNewBlock>
 									<S.FormNewBlock>
 										<S.PopNewCardLabel htmlFor="textArea">Описание задачи</S.PopNewCardLabel>
-										<S.FormNewArea id="textArea"  placeholder="Введите описание задачи..." />
+										<S.FormNewArea
+										onChange={(e) =>
+											setNewTask({...newTask, description: e.target.value})
+										} 
+										name="text"
+										id="textArea"  
+										placeholder="Введите описание задачи..."
+										value={newTask.description} />
 									</S.FormNewBlock>
 								</S.PopNewCardForm>
 								<S.Calendar>
@@ -66,7 +133,8 @@ export const PopNewCard = () => {
 									</div>
 								</S.CategoriesThemes>
 							</S.PopNewCardCategories>
-							<button className="form-new__create _hover01" id="btnCreate" onClick={addTask}>Создать задачу</button>
+							<button className="form-new__create _hover01" id="btnCreate" onClick={addNewTask}>Создать задачу</button>
+							{error && <p style={{ color: "red" }}>{error}</p>}
 						</S.PopNewCardContent>
 					</S.PopNewCardBlock>
 				</S.PopNewCardContainer>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const PopNewCard = styled.div `
- /* display: none; */
  width: 100%;
   min-width: 375px;
   height: 100%;
@@ -108,6 +107,7 @@ width: 100%;
   line-height: 1;
   letter-spacing: -0.14px;
   margin: 20px 0;
+  font-family: "Roboto";
 
   &::placeholder {
     font-weight: 400;
@@ -131,6 +131,7 @@ export const FormNewArea = styled.textarea`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
+  font-family: "Roboto";
 
   &::placeholder {
     font-weight: 400;
@@ -138,6 +139,7 @@ export const FormNewArea = styled.textarea`
     line-height: 1px;
     color: #94A6BE;
     letter-spacing: -0.14px;
+    vertical-align: top;
   }
 `;
 
