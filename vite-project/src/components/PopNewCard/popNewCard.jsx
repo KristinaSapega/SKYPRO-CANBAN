@@ -48,18 +48,26 @@ export const PopNewCard = () => {
 		// 	setError("Выберите срок исполнения");
 		// 	return;
 		// }
-		// if (newTask.topic === "") {
-		// 	setError("Выберите категорию задачи");
-		// 	return;
-		// }
+		if (newTask.topic === "") {
+			setError("Выберите категорию задачи");
+			return;
+		}
 		try {
-			await addTaskApi(newCard, user.token);
+			const res = await addTaskApi(newCard, user.token);
 				setTasks([...tasks, res.task]); //Обновляем состояние задач
 				nav(routes.main);
 		}catch (error) {
 			setError(error.message)
 		}
 	};
+
+	const [activeCategory, setActiveCategory] = useState(""); 
+
+  const handleCategoryClick = (category) => {
+    setNewTask({ ...newTask, topic: category });
+    setActiveCategory(category); 
+    console.log("Выбрана категория:", category); 
+  };
 
 	// const addTask = () => {
     //     const newTask = {
@@ -118,20 +126,23 @@ export const PopNewCard = () => {
 										</div>
 
 									</S.Calendar>
-								</S.PopNewCardWrap>
-							<S.PopNewCardCategories>
-								<S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
-								<S.CategoriesThemes>
-									<div className="categories__theme _orange _active-category">
-										<p className="_orange">Web Design</p>
-									</div>
-									<div className="categories__theme _green">
-										<p className="_green">Research</p>
-									</div>
-									<div className="categories__theme _purple">
-										<p className="_purple">Copywriting</p>
-									</div>
-								</S.CategoriesThemes>
+						</S.PopNewCardWrap>
+						<S.PopNewCardCategories>
+							<S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
+							<S.CategoriesThemes>
+								<div className={`categories__theme _orange ${activeCategory === "Web Design" ? "_active-category" : ""}`}
+									onClick={() => handleCategoryClick("Web Design")}>
+									<p className="_orange">Web Design</p>
+								</div>
+								<div className={`categories__theme _green ${activeCategory === "Research" ? "_active-category" : ""}`}
+									onClick={() => handleCategoryClick("Research")}>
+									<p className="_green">Research</p>
+								</div>
+								<div className={`categories__theme _purple ${activeCategory === "Copywriting" ? "_active-category" : ""}`} 
+									onClick={() => handleCategoryClick("Copywriting")}>
+									<p className="_purple">Copywriting</p>
+								</div>
+							</S.CategoriesThemes>
 							</S.PopNewCardCategories>
 							<button className="form-new__create _hover01" id="btnCreate" onClick={addNewTask}>Создать задачу</button>
 							{error && <p style={{ color: "red" }}>{error}</p>}
