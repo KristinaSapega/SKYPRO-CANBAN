@@ -2,6 +2,17 @@
 import * as S from "./calendar.styled"
 
 export const Calendar = ({ date, setDate, footer }) => {
+    // let footerContent = (<S.CalendarContentP> Выберите срок исполнения. </S.CalendarContentP>);
+    // if (selected) {
+    //     footer = (
+    //         <S.CalendarContentP>Выберите срок исполнения: {" "} 
+    //         <S.SelectedDate>
+    //             {format(date, "dd.MM.yy")}
+    //         </S.SelectedDate>
+    //         </S.CalendarContentP>
+    //     );
+    // } 
+
     return (
         <S.Calendar 
         mode="single"

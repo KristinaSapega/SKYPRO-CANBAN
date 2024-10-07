@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Green, Orange, Purple } from "../../global.styled";
 
 export const PopNewCard = styled.div `
  width: 100%;
@@ -150,6 +151,24 @@ max-width: 300px; /* Максимальная ширина для удобног
 margin-bottom: 20px;
 `;
 
+export const CalendarContentP = styled.p`
+  width: 100px;
+  color: #94a6be;
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
+  height: 22px;
+  margin-top: 14px;
+  
+`;
+
+export const SelectedDate = styled.span`
+  color: black;
+  font-family: Roboto;
+`;
+
 export const CalendarTtl = styled.p `
  margin-bottom: 14px;
   padding: 0 7px;
@@ -178,5 +197,66 @@ display: flex;
   justify-content: flex-start;
 `;
 
+export const CategoriesThemeOrange = styled.input `
+display: inline-block;
+display: none;
+`;
 
+export const CategoriesThemeGreen = styled.input `
+display: inline-block;
+display: none;
+`;
+
+export const CategoriesThemePurple = styled.input `
+display: inline-block;
+display: none;
+`;
+
+export const TopicPurple = styled.label`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+  ${Purple};
+  opacity: ${({ $active }) => ($active ? 1 : 0.4)};
+`;
+
+export const TopicOrange = styled.label`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14.21px;
+  white-space: nowrap;
+  ${Orange};
+  opacity: ${({ $active }) => ($active ? 1 : 0.4)};
+`;
+
+export const TopicGreen = styled.label`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+  ${Green};
+  opacity: ${({ $active }) => ($active ? 1 : 0.4)};
+`;
 
