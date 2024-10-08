@@ -68,4 +68,18 @@ export const CardTitle = styled.h3 `
   line-height: 18px;
   color: ${({ theme }) => theme.cardTitle};
   margin-bottom: 10px;
-`
+`;
+
+export const CardDateText = styled.p`
+  display: flex;  
+  align-items: center;
+  margin-left: 6px;
+  font-size: 10px;
+  line-height: 11px;
+  color: #94A6BE;
+
+  svg {
+    margin-right: 5px; 
+    vertical-align: middle;
+  }
+  `;

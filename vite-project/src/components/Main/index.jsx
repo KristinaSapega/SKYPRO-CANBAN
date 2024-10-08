@@ -4,7 +4,7 @@ import * as S from "./main.styled"
 import { Container } from "../../global.styled";
 
 
-export const Main = ({cards}) => {
+export const Main = ({tasks}) => {
 
     return (
         <S.Main>
@@ -16,7 +16,7 @@ export const Main = ({cards}) => {
 							<Column 
 							key={index}
 							title={status}
-							cards={cards.filter((card)=> card.status === status)}/>
+							tasks={tasks.filter((task)=> task.status === status)}/>
 						))}
 					</div>
 				
