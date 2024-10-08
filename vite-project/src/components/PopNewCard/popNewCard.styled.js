@@ -61,7 +61,7 @@ color: #000;
   margin-bottom: 20px;
 `;
 
-export const PopNewCardClose = styled.a `
+export const PopNewCardClose = styled.span `
  position: absolute;
   top: 20px;
   right: 30px;
@@ -145,14 +145,13 @@ export const FormNewArea = styled.textarea`
 `;
 
 export const Calendar = styled.div `
-margin-bottom: 20px;
+/* margin-bottom: 20px;
 width: 100%; /* Устанавливаем календарь на всю ширину родительского блока */
-max-width: 300px; /* Максимальная ширина для удобного отображения */
-margin-bottom: 20px;
+//max-width: 300px; /* Максимальная ширина для удобного отображения */
+//margin-bottom: 20px; */
 `;
 
 export const CalendarContentP = styled.p`
-  width: 100px;
   color: #94a6be;
   font-family: Roboto;
   font-size: 10px;

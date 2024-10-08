@@ -6,15 +6,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTasksContext } from "../../context/useTasksContext";
 import { addTask as addTaskApi } from "../../api/tasks";
 import { useUserContext } from "../../context/useUserContext";
+import { format } from "date-fns";
 
 export const PopNewCard = () => {
 	const { user } = useUserContext();
 
 	const nav = useNavigate();
 
-	const [date, setDate] = useState(null);
+	const [taskDate, setTaskDate] = useState(null);
 
 	const [error, setError] = useState("");
+
+	const [dateMessage, setDateMessage] = useState("Выберите срок исполнения"); 
 
 	const { tasks, setTasks } = useTasksContext();
 
@@ -25,14 +28,7 @@ export const PopNewCard = () => {
 		topic: "",
 	});
 
-	const newCard = {
-		title: newTask.title,
-		topic: newTask.topic,
-		description: newTask.description ? newTask.description.trim() : "",
-		date: date || new Date(),
-
-	};
-
+	
 	const addNewTask = async (e) => {
 		e.preventDefault();
 
@@ -44,17 +40,26 @@ export const PopNewCard = () => {
 			setError("Введите описание задачи");
 			return;
 		}
-		// if (!date) {
-		// 	setError("Выберите срок исполнения");
-		// 	return;
-		// }
+		if (!taskDate) {
+			setError("Выберите срок исполнения");
+			return;
+		}
 		if (newTask.topic === "") {
 			setError("Выберите категорию задачи");
 			return;
 		}
+		const newCard = {
+			title: newTask.title,
+			topic: newTask.topic,
+			description: newTask.description ? newTask.description.trim() : "",
+			date: taskDate || new Date(),
+			status: "Без статуса",
+	
+		};
+	
 		try {
 			const res = await addTaskApi(newCard, user.token);
-			setTasks([...tasks, res.task]); //Обновляем состояние задач
+			setTasks(res.tasks); //Обновляем состояние задач
 			nav(routes.main);
 		} catch (error) {
 			setError(error.message)
@@ -66,6 +71,16 @@ export const PopNewCard = () => {
 	const handleCategoryClick = (category) => {
 		setNewTask({ ...newTask, topic: category });
 		console.log("Выбрана категория:", category);
+	};
+
+	const handleDateChange = (selectedDate) => {
+		console.log("Selected Date: ", selectedDate); 
+		setTaskDate(selectedDate);
+		if (selectedDate) {
+			setDateMessage(`Срок исполнения: ${format(selectedDate, "dd.MM.yyyy")}`);
+		}else {
+			setDateMessage("Выберите срок исполнения");
+		}
 	};
 
 
@@ -119,14 +134,9 @@ export const PopNewCard = () => {
 							</S.PopNewCardForm>
 							<S.Calendar>
 								<S.CalendarTtl>Даты</S.CalendarTtl>
-								<Calendar onChange={setDate} selected={date} />
-								<S.CalendarContentP> Выберите срок исполнения. </S.CalendarContentP>
-								{/* <S.SelectedDate>{format(date, "dd.MM.yy")}</S.SelectedDate> */}
-
-								{/* <div className="calendar__period">
-											<p className="calendar__p date-end">
-												Выберите срок исполнения <span className="date-control"></span></p>
-										</div> */}
+								<Calendar date={taskDate} setDate={handleDateChange} />
+								{/* <Calendar onChange={handleDateChange} selected={taskDate} /> */}
+								<S.CalendarContentP> {dateMessage} </S.CalendarContentP>
 
 							</S.Calendar>
 						</S.PopNewCardWrap>
