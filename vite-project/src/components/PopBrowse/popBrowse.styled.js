@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { themeColor } from "../../global.styled";
 
 export const PopBrowse = styled.div `
   width: 100%;
@@ -40,6 +42,21 @@ text-align: left;
 
 export const CategoriesTheme = styled.div`
 opacity: 1;
+width: 115px;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+${({$color}) => themeColor($color)}
+
+p {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+}
+  
 `;
 
 export const PopBrowseTopBlock = styled.div `
@@ -106,4 +123,51 @@ export const FormTextArea = styled.textarea `
   }
 `
 
+// Основная стилизация кнопок
+export const Button = styled.button`
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 14px;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+`;
 
+// Кнопка редактирования с обводкой
+export const ButtonChangeDelete = styled(Button)`
+  background-color: transparent;
+  color: #565eef;
+  border: 0.7px solid #565eef;
+
+  &:hover {
+    background-color: #33399b;
+    color: #ffffff;
+  }
+`;
+
+
+
+// Кнопка закрытия с фоном
+export const ButtonClose = styled(Button)`
+  background-color: #565eef;
+  color: #ffffff;
+  border: none;
+
+  &:hover {
+    background-color: #33399b;
+  }
+`;
+
+export const ButtonLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;

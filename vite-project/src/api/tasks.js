@@ -61,3 +61,21 @@ export const updateTask = async (id, updatedData, token) => {
     }
     return response.json();
 };
+
+
+export const getTaskById = async (id, token) => {
+  const response = await fetch(`${apiURL}/${id}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (response.status === 404) {
+    throw new Error("Задача не найдена.");
+  }
+  if (!response.ok) {
+    throw new Error("Не удалось загрузить данные задачи. Попробуйте позже.");
+  }
+  const data = await response.json();
+  return data.task; 
+};
