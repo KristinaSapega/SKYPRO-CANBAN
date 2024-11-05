@@ -1,13 +1,17 @@
 import { Link, useNavigate } from "react-router-dom"
 import { routes } from "../../router/routes"
 import { PopExit, PopExitBlog, PopExitButtonNo, PopExitButtonYes, PopExitContainer, PopExitFormGroup, PopExitTitle } from "./popUser.styled"
+import { useUserContext } from "../../context/useUserContext"
 
-export const PopUser = (setUser) => {
-	const nav = useNavigate()
+export const PopUser = () => {
+	const { logout } = useUserContext();
+	const nav = useNavigate();
+
 	const handleLogout = () => {
-		setUser(false)
-		nav(routes.login)
-	}
+		logout(); 
+		nav(routes.login);
+	};
+
     return (
         <PopExit id="popExit">
 				<PopExitContainer>

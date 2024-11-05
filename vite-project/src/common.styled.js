@@ -87,7 +87,7 @@ width: 100%;
   color: #FFFFFF;
   text-decoration: none;
 
-  ${Hover01}
+  /* ${Hover01} */
 
   a {
     width: 100%;

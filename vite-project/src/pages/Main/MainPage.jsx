@@ -2,64 +2,77 @@ import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { Main } from "../../components/Main";
 //import { PopBrowse } from '../../components/PopBrowse';
-import { PopNewCard } from '../../components/PopNewCard';
+import { PopNewCard } from '../../components/PopNewCard/popNewCard.jsx';
 //import { PopUser } from '../../components/PopUser';
 //import { cardList } from "../../data.js";
 import { Wrapper } from "../../global.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
+import { useUserContext } from "../../context/useUserContext.js";
+import { useTasksContext } from "../../context/useTasksContext.js";
 
 
-export const MainPage = ({ changeTheme, setChangeTheme, user, setUser }) => {
-    const [cards, setCards] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState("")
+export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
 
-    const addCard = () => {
+    const {user} = useUserContext();
 
-        const newCard = {
-            id: cards.length + 1,
-            topic: "Web Design",
-            title: "Новая задача",
-            date: "30.10.23",
-            status: "Без статуса",
-        }
-        setCards([...cards, newCard])
-    }
+    const {tasks, setTasks} = useTasksContext();
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    
 
     useEffect(() => {
-        getTasks(user.token)
-        .then((resp) => {
-            setCards(resp.tasks)
-            
-        })
-        .catch((error) => {
-            setError("Ошибка загрузки данных:" + error.message);
-        })
-        .finally(() => {
-            setIsLoading(false)
-        })
-        //setIsLoading(true)
-        // setTimeout(() => {
-        //     setIsLoading(false)
-        // }, 1000)
-    }, []);
+        console.log(user)
+        if (user && user.token) {
+            getTasks(user.token)
+            .then((resp) => {
+                setTasks(resp.tasks);
+            })
+            .catch((error) => {
+                console.log (error);
+                setError("Ошибка загрузки данных: " + error.message);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+        } else {
+            setError("Пользователь не авторизован или отсутствует токен.");
+            setIsLoading(false);
+        }
+    }, [user]);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
 
         <Wrapper>
-            <Header addCard={addCard} setUser={setUser} setChangeTheme={setChangeTheme} changeTheme={changeTheme} />
+            <Outlet />
+            <Header 
+            setUser={setUser} 
+            setChangeTheme={setChangeTheme} 
+            changeTheme={changeTheme} 
+            openModal={openModal}/>
+
             {isLoading ? (
                 <p className="loader"> Данные загружаются...</p> 
             ) : error ? (
                 <p className="error">{error}</p>
             ) : (
-                 <Main cards={cards}/>
+                 <Main tasks={tasks}/>
             )}
+
+            {isModalOpen && <PopNewCard onClose={closeModal} />}
             {/* <PopBrowse /> */}
-            <PopNewCard />
             {/* <PopUser /> */}
-            <Outlet />
+            
         </Wrapper>
     )
 }

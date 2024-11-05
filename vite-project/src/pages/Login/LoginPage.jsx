@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
 import { useState } from "react";
 import { signIn } from "../../api/user";
+import { useUserContext } from "../../context/useUserContext";
 
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
+	const {login} = useUserContext();
 
 	const [formData, setFormData] = useState({
 		login: "",
@@ -20,7 +22,7 @@ export const LoginPage = ({ setUser }) => {
 	const [error, setError] = useState("");
 
 
-	const handleLogin = (e) => {
+	const handleLogin = async (e) => {
 		e.preventDefault()
 		if (formData.login === "") {
 			setError("Введите логин")
@@ -31,16 +33,20 @@ export const LoginPage = ({ setUser }) => {
 			return
 		}
 
-		
-		signIn(formData).then((resp) => {
-			console.log(resp.user)
-			setUser(resp.user)
+		try {
+			const resp = await signIn(formData)
+			login(resp.user);
+			localStorage.setItem("user", JSON.stringify(resp))
 			navigate(routes.main)
-		})
-		.catch ((error) => {
+		} catch (error) {
 			console.log (error.message)
 			setError(error.message)
-		})
+		}
+		// signIn(formData).then((resp) => {
+		// 	console.log(resp.user)
+		// 	login(resp.user)
+		// 	navigate(routes.main)
+		// })
 		
 	}
 	return (
