@@ -19,7 +19,7 @@ export const PopNewCard = () => {
 
 	const [dateMessage, setDateMessage] = useState("Выберите срок исполнения"); 
 
-	const { tasks, setTasks } = useTasksContext();
+	const { setTasks } = useTasksContext();
 
 	const [newTask, setNewTask] = useState({
 		title: "",
