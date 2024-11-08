@@ -10,17 +10,17 @@ export const Main = ({tasks}) => {
         <S.Main>
 			<Container>
 				
-				<div className="main__block">
-					<div className="main__content">
+				<S.MainBlock>
+					<S.MainContent>
 						{statusList.map ((status, index)=> (
 							<Column 
 							key={index}
 							title={status}
 							tasks={tasks.filter((task)=> task.status === status)}/>
 						))}
-					</div>
+					</S.MainContent>
 				
-				</div>
+				</S.MainBlock>
 			</Container>
 		</S.Main>
     )

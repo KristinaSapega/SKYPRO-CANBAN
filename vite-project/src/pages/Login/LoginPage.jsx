@@ -39,14 +39,8 @@ export const LoginPage = () => {
 			localStorage.setItem("user", JSON.stringify(resp))
 			navigate(routes.main)
 		} catch (error) {
-			console.log (error.message)
 			setError(error.message)
 		}
-		// signIn(formData).then((resp) => {
-		// 	console.log(resp.user)
-		// 	login(resp.user)
-		// 	navigate(routes.main)
-		// })
 		
 	}
 	return (

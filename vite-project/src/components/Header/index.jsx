@@ -8,8 +8,8 @@ import { useUserContext } from "../../context/useUserContext.js"
 
 export const Header = ({changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
-	const { user, setUser } = useUserContext();
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const { user  } = useUserContext();
+	const [ setIsModalOpen] = useState(false);
 
 
 	const toggelOpenUser = () => {
@@ -26,25 +26,20 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 	};
 
 
-	const handleLogout = () => {
-        setUser(null);  // Очищаем пользователя при выходе
-    };
 
-
-	//console.log(isOpen)
 	return (
 		<S.Header>
 			<Container>
 				<S.HeaderBlock>
-					<div className="header__logo">
+					<S.HeaderLogo>
 						<a href="" target="_self">
 							<img 
 							src={changeTheme === "light" ? "images/logo.png" : "images/logo_dark.png"}
 							alt="logo"
 							/>
 						</a>
-					</div>
-					<nav className="header__nav">
+					</S.HeaderLogo>
+					<S.HeaderNav>
 
 						
 						<S.HeaderBtnMainNew to={routes.add} >
@@ -54,21 +49,18 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>{user.name}</S.HeaderUser>
 						{isOpen &&
 							<PopUserSet>
-								{/* <a href="">x</a> */}
 								<PopUserSetName>{user.name}</PopUserSetName>
 								<PopUserSetMail>{user.email}</PopUserSetMail>
 								<PopUserSetTheme>
 									<p>Темная тема</p>
-									<input checked={changeTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+									<input checked={changeTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
 								</PopUserSetTheme>
-								<PopBtn className="_hover03" onClick={handleLogout}><Link to={routes.exite}>Выйти</Link></PopBtn>
+								<PopBtn className="_hover03" onClick={openModel}><Link to={routes.exite}>Выйти</Link></PopBtn>
 							</PopUserSet>
 							}
-					</nav>
+					</S.HeaderNav>
 				</S.HeaderBlock>
 			</Container>
-			{/* Render PopNewCard*/}
-			{/* {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />} */}
 		</S.Header>
 	)
 

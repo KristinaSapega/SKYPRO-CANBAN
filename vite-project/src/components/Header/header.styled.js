@@ -20,6 +20,21 @@ left: 0;
 padding: 0 10px;
 `;
 
+export const HeaderLogo = styled.div`
+img {
+width: 85px;
+}  
+`;
+
+export const HeaderNav = styled.nav`
+  max-width: 290px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+
 export const HeaderBtnMainNew = styled (Link) `
 display: flex;
 align-items: center;
