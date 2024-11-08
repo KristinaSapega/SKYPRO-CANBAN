@@ -17,7 +17,7 @@ export const PopNewCard = () => {
 
 	const [error, setError] = useState("");
 
-	const [dateMessage, setDateMessage] = useState("Выберите срок исполнения"); 
+	const [dateMessage, setDateMessage] = useState("Выберите срок исполнения");
 
 	const { setTasks } = useTasksContext();
 
@@ -28,7 +28,7 @@ export const PopNewCard = () => {
 		topic: "",
 	});
 
-	
+
 	const addNewTask = async (e) => {
 		e.preventDefault();
 
@@ -54,9 +54,9 @@ export const PopNewCard = () => {
 			description: newTask.description ? newTask.description.trim() : "",
 			date: taskDate || new Date(),
 			status: "Без статуса",
-	
+
 		};
-	
+
 		try {
 			const res = await addTaskApi(newCard, user.token);
 			setTasks(res.tasks); //Обновляем состояние задач
@@ -74,27 +74,15 @@ export const PopNewCard = () => {
 	};
 
 	const handleDateChange = (selectedDate) => {
-		console.log("Selected Date: ", selectedDate); 
+		console.log("Selected Date: ", selectedDate);
 		setTaskDate(selectedDate);
 		if (selectedDate) {
 			setDateMessage(`Срок исполнения: ${format(selectedDate, "dd.MM.yyyy")}`);
-		}else {
+		} else {
 			setDateMessage("Выберите срок исполнения");
 		}
 	};
 
-
-
-	// const addTask = () => {
-	//     const newTask = {
-	//         id: tasks.length + 1,
-	//         topic: "Web Design",
-	//         title: "Новая задача",
-	//         date: date || new Date(),
-	//         status: "Без статуса",
-	//     }
-	//     setTasks([...tasks, newTask])
-	// }
 
 	return (
 		<S.PopNewCard>
@@ -164,7 +152,9 @@ export const PopNewCard = () => {
 								</S.TopicPurple>
 							</S.CategoriesThemes>
 						</S.PopNewCardCategories>
-						<button className="form-new__create _hover01" id="btnCreate" onClick={addNewTask}>Создать задачу</button>
+						<S.FormNewCreate id="btnCreate" onClick={addNewTask}>
+							Создать задачу
+						</S.FormNewCreate>
 						{error && <p style={{ color: "red" }}>{error}</p>}
 					</S.PopNewCardContent>
 				</S.PopNewCardBlock>

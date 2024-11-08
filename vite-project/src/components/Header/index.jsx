@@ -36,15 +36,15 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 		<S.Header>
 			<Container>
 				<S.HeaderBlock>
-					<div className="header__logo">
+					<S.HeaderLogo>
 						<a href="" target="_self">
 							<img 
 							src={changeTheme === "light" ? "images/logo.png" : "images/logo_dark.png"}
 							alt="logo"
 							/>
 						</a>
-					</div>
-					<nav className="header__nav">
+					</S.HeaderLogo>
+					<S.HeaderNav>
 
 						
 						<S.HeaderBtnMainNew to={routes.add} >
@@ -54,7 +54,6 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 						<S.HeaderUser $isOpen={isOpen}onClick={toggelOpenUser}>{user.name}</S.HeaderUser>
 						{isOpen &&
 							<PopUserSet>
-								{/* <a href="">x</a> */}
 								<PopUserSetName>{user.name}</PopUserSetName>
 								<PopUserSetMail>{user.email}</PopUserSetMail>
 								<PopUserSetTheme>
@@ -64,11 +63,9 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 								<PopBtn className="_hover03" onClick={handleLogout}><Link to={routes.exite}>Выйти</Link></PopBtn>
 							</PopUserSet>
 							}
-					</nav>
+					</S.HeaderNav>
 				</S.HeaderBlock>
 			</Container>
-			{/* Render PopNewCard*/}
-			{/* {isModalOpen && <PopNewCard onClose={() => setIsModalOpen(false)} />} */}
 		</S.Header>
 	)
 

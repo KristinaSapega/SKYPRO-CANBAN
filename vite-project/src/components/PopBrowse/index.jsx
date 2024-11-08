@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { routes } from "../../router/routes";
 import * as S from "./popBrowse.styled";
 import { Calendar } from "../Calendar";
@@ -25,7 +25,7 @@ export const PopBrowse = () => {
 			if (!cardId || !user?.token) return;
 
 			try {
-				const taskData = await getTaskById(cardId, user.token); 
+				const taskData = await getTaskById(cardId, user.token);
 				setTitle(taskData.title);
 				setStatus(taskData.status);
 				setDescription(taskData.description);
@@ -114,21 +114,20 @@ export const PopBrowse = () => {
 								<p>{topic}</p>
 							</S.CategoriesTheme>
 						</S.PopBrowseTopBlock>
-						<div className="pop-browse__status status">
+						<S.StatusContainer>
 							<S.BrowseStatusP>Статус</S.BrowseStatusP>
 							<S.BrowseStatusThemes>
 								{["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"].map((stat) => (
-									<div
-										key={stat}
-										className={`status__theme ${status === stat ? "_active" : ""}`}
-										onClick={() => isEditing && setStatus(stat)}
-										style={{ color: status === stat ? "#94A6BE" : "" }}
-									>
-										<p>{stat}</p>
-									</div>
+									<S.StatusTheme
+									key={stat}
+									onClick={() => isEditing && setStatus(stat)}
+									style={{ color: status === stat ? "#94A6BE" : "" }}
+								  >
+									<p>{stat}</p>
+								  </S.StatusTheme>
 								))}
 							</S.BrowseStatusThemes>
-						</div>
+						</S.StatusContainer>
 						{/* <div className="pop-browse__status status">
 							<S.BrowseStatusP>Статус</S.BrowseStatusP>
 							<S.BrowseStatusThemes>
@@ -166,12 +165,12 @@ export const PopBrowse = () => {
 							<Calendar onChange={(selectedDate) => setDate(selectedDate)}
 								selected={date} />
 						</S.PopBrowseWrap>
-						<div className="pop-browse__btn-browse ">
-							<div className="btn-group">
+						<S.ButtonContainer>
+							<S.ButtonGroup>
 								{isEditing ? (
 									<>
-										<button onClick={handleSaveTask} className="btn-edit__edit _btn-bg _hover01">Сохранить</button>
-										<button onClick={handleCancelEdit} className="btn-edit__edit _btn-bor _hover03">Отменить</button>
+										<S.ButtonChangeDelete onClick={handleSaveTask} className="btn-edit__edit _btn-bg _hover01">Сохранить</S.ButtonChangeDelete>
+										<S.ButtonChangeDelete onClick={handleCancelEdit} className="btn-edit__edit _btn-bor _hover03">Отменить</S.ButtonChangeDelete>
 									</>
 								) : (
 									<>
@@ -179,18 +178,11 @@ export const PopBrowse = () => {
 										<S.ButtonChangeDelete onClick={handleDeleteTask}>Удалить задачу</S.ButtonChangeDelete>
 									</>
 								)}
-							</div>
-							<button className="btn-browse__close _btn-bg _hover01"><Link to={routes.main}>Закрыть</Link></button>
-						</div>
-						{/* <div className="pop-browse__btn-edit _hide">
-							<div className="btn-group">
-								<button onClick={handleSaveTask} className="btn-edit__edit _btn-bg _hover01"><a href="#">Сохранить</a></button>
-								<button onClick={handleCancelEdit} className="btn-edit__edit _btn-bor _hover03"><a href="#">Отменить</a></button>
-								<button onClick={handleDeleteTask} className="btn-edit__delete _btn-bor _hover03" id="btnDelete"><a href="#">Удалить задачу</a></button>
-							</div>
-							<button className="btn-edit__close _btn-bg _hover01"><a href="#">Закрыть</a></button>
-						</div> */}
-
+							</S.ButtonGroup>
+							<S.ButtonClose>
+								<S.ButtonLink to={routes.main}>Закрыть</S.ButtonLink>
+							</S.ButtonClose>
+						</S.ButtonContainer>
 					</S.PopBrowseContent>
 				</S.PopBrowseBlock>
 			</S.PopBrowseContainer>

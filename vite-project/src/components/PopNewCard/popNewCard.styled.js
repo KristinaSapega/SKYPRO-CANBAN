@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Green, Orange, Purple } from "../../global.styled";
+import { Hover01 } from "../../global.styled";
 
 export const PopNewCard = styled.div `
  width: 100%;
@@ -259,3 +260,19 @@ export const TopicGreen = styled.label`
   opacity: ${({ $active }) => ($active ? 1 : 0.4)};
 `;
 
+export const FormNewCreate = styled.button`
+  width: 132px;
+  height: 30px;
+  background-color: #565EEF;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #FFFFFF;
+  float: right;
+  cursor: pointer;
+
+  ${Hover01};
+`;
