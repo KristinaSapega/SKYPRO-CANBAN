@@ -62,7 +62,7 @@ export const PopBrowse = () => {
 	};
 
 	const handleEditTask = () => {
-		setIsEditing(true); // Переключение в режим редактирования
+		setIsEditing(true); // Включаем режим редактирования
 	};
 
 	const handleSaveTask = async (e) => {
@@ -92,6 +92,12 @@ export const PopBrowse = () => {
 		setIsEditing(false); // Отмена редактирования
 	};
 
+	const handleStatusClick = (stat) => {
+		if (isEditing) {
+			setStatus(stat);
+		}
+	};
+
 
 	return (
 		<S.PopBrowse>
@@ -117,37 +123,24 @@ export const PopBrowse = () => {
 						<S.StatusContainer>
 							<S.BrowseStatusP>Статус</S.BrowseStatusP>
 							<S.BrowseStatusThemes>
-								{["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"].map((stat) => (
-									<S.StatusTheme
-									key={stat}
-									onClick={() => isEditing && setStatus(stat)}
-									style={{ color: status === stat ? "#94A6BE" : "" }}
-								  >
-									<p>{stat}</p>
-								  </S.StatusTheme>
-								))}
+							{isEditing
+									? ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"].map((stat) => (
+										<S.StatusTheme
+											key={stat}
+											onClick={() => handleStatusClick(stat)}
+											$isActive={status === stat}
+											$isSelected={status === stat}
+										>
+											<p>{stat}</p>
+										</S.StatusTheme>
+									  ))
+									: (
+										<S.StatusTheme $isActive={true} $isSelected={true}>
+											<p>{status}</p>
+										</S.StatusTheme>
+									  )}
 							</S.BrowseStatusThemes>
 						</S.StatusContainer>
-						{/* <div className="pop-browse__status status">
-							<S.BrowseStatusP>Статус</S.BrowseStatusP>
-							<S.BrowseStatusThemes>
-								<div className="status__theme _hide">
-									<p>Без статуса</p>
-								</div>
-								<div className="status__theme _gray">
-									<p className="_gray">Нужно сделать</p>
-								</div>
-								<div className="status__theme _hide">
-									<p>В работе</p>
-								</div>
-								<div className="status__theme _hide">
-									<p>Тестирование</p>
-								</div>
-								<div className="status__theme _hide">
-									<p>Готово</p>
-								</div>
-							</S.BrowseStatusThemes>
-						</div> */}
 						<S.PopBrowseWrap>
 							<S.PopBrowseForm id="formBrowseCard" action="#">
 								<S.FormTextAreaBlock>
@@ -158,7 +151,6 @@ export const PopBrowse = () => {
 										readOnly={!isEditing}
 										onChange={(e) => setDescription(e.target.value)}
 										value={description}
-									//placeholder="Введите описание задачи..."
 									/>
 								</S.FormTextAreaBlock>
 							</S.PopBrowseForm>

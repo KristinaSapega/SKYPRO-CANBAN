@@ -102,7 +102,7 @@ export const FormNewInput = styled.input `
 width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  background: #EAEEF6;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -110,6 +110,10 @@ width: 100%;
   letter-spacing: -0.14px;
   margin: 20px 0;
   font-family: "Roboto";
+
+   &:focus {
+    background: #FFFFFF; 
+  }
 
   &::placeholder {
     font-weight: 400;
@@ -127,13 +131,19 @@ export const FormNewArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  background: #EAEEF6;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
   font-family: "Roboto";
+  background color: #EAEEF6;
+
+  &:focus {
+    background: #FFFFFF; 
+  }
+
 
   &::placeholder {
     font-weight: 400;

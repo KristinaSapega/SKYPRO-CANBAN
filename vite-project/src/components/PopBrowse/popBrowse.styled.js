@@ -92,7 +92,7 @@ export const BrowseStatusThemes = styled.div`
 export const StatusTheme = styled.div`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
+  background: ${({ $isActive }) => ($isActive ? "#94A6BE" : "transparent")};
   padding: 11px 14px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
@@ -102,6 +102,7 @@ export const StatusTheme = styled.div`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+    color: ${({ $isSelected }) => ($isSelected ? "#ffffff" : "#94A6BE")};
   }
 `;
 
@@ -128,7 +129,7 @@ export const FormTextArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: #eaef6;
+  background: #EAEEF6;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -136,6 +137,10 @@ export const FormTextArea = styled.textarea`
   letter-spacing: -0.14px;
   margin-top: 14px;
   height: 200px;
+
+   &:focus {
+    background: #FFFFFF; 
+  }
   
   &::placeholder {
     font-weight: 400;
