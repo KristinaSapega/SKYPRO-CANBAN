@@ -8,8 +8,8 @@ import { useUserContext } from "../../context/useUserContext.js"
 
 export const Header = ({changeTheme, setChangeTheme}) => {
 	const [isOpen, setIsOpen] = useState(false)
-	const { user, setUser } = useUserContext();
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const { user  } = useUserContext();
+	const [ setIsModalOpen] = useState(false);
 
 
 	const toggelOpenUser = () => {
@@ -26,9 +26,6 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 	};
 
 
-	const handleLogout = () => {
-        setUser(null);  // Очищаем пользователя при выходе
-    };
 
 	return (
 		<S.Header>
@@ -58,7 +55,7 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 									<p>Темная тема</p>
 									<input checked={changeTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
 								</PopUserSetTheme>
-								<PopBtn className="_hover03" onClick={handleLogout}><Link to={routes.exite}>Выйти</Link></PopBtn>
+								<PopBtn className="_hover03" onClick={openModel}><Link to={routes.exite}>Выйти</Link></PopBtn>
 							</PopUserSet>
 							}
 					</S.HeaderNav>

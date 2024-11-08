@@ -1,4 +1,4 @@
-import {  useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { routes } from "../../router/routes";
 import * as S from "./popBrowse.styled";
 import { Calendar } from "../Calendar";
@@ -106,15 +106,7 @@ export const PopBrowse = () => {
 					<S.PopBrowseContent>
 						<S.PopBrowseTopBlock>
 							<S.PopBrowseTtl>
-								{isEditing ? (
-									<input
-										type="text"
-										value={title}
-										onChange={(e) => setTitle(e.target.value)}
-									/>
-								) : (
-									`Название задачи: ${title}`
-								)}
+								Название задачи: {title}
 							</S.PopBrowseTtl>
 							<S.CategoriesTheme $color={topic}>
 								<p>{topic}</p>
@@ -123,7 +115,7 @@ export const PopBrowse = () => {
 						<S.StatusContainer>
 							<S.BrowseStatusP>Статус</S.BrowseStatusP>
 							<S.BrowseStatusThemes>
-							{isEditing
+								{isEditing
 									? ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"].map((stat) => (
 										<S.StatusTheme
 											key={stat}
@@ -133,12 +125,12 @@ export const PopBrowse = () => {
 										>
 											<p>{stat}</p>
 										</S.StatusTheme>
-									  ))
+									))
 									: (
 										<S.StatusTheme $isActive={true} $isSelected={true}>
 											<p>{status}</p>
 										</S.StatusTheme>
-									  )}
+									)}
 							</S.BrowseStatusThemes>
 						</S.StatusContainer>
 						<S.PopBrowseWrap>
