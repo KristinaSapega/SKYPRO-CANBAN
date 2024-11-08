@@ -22,14 +22,12 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
     
 
     useEffect(() => {
-        console.log(user)
         if (user && user.token) {
             getTasks(user.token)
             .then((resp) => {
                 setTasks(resp.tasks);
             })
             .catch((error) => {
-                console.log (error);
                 setError("Ошибка загрузки данных: " + error.message);
             })
             .finally(() => {

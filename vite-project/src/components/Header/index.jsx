@@ -30,8 +30,6 @@ export const Header = ({changeTheme, setChangeTheme}) => {
         setUser(null);  // Очищаем пользователя при выходе
     };
 
-
-	//console.log(isOpen)
 	return (
 		<S.Header>
 			<Container>
@@ -58,7 +56,7 @@ export const Header = ({changeTheme, setChangeTheme}) => {
 								<PopUserSetMail>{user.email}</PopUserSetMail>
 								<PopUserSetTheme>
 									<p>Темная тема</p>
-									<input checked={changeTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+									<input checked={changeTheme === "dark"} onChange={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
 								</PopUserSetTheme>
 								<PopBtn className="_hover03" onClick={handleLogout}><Link to={routes.exite}>Выйти</Link></PopBtn>
 							</PopUserSet>

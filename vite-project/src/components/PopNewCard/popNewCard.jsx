@@ -70,11 +70,9 @@ export const PopNewCard = () => {
 
 	const handleCategoryClick = (category) => {
 		setNewTask({ ...newTask, topic: category });
-		console.log("Выбрана категория:", category);
 	};
 
 	const handleDateChange = (selectedDate) => {
-		console.log("Selected Date: ", selectedDate);
 		setTaskDate(selectedDate);
 		if (selectedDate) {
 			setDateMessage(`Срок исполнения: ${format(selectedDate, "dd.MM.yyyy")}`);
