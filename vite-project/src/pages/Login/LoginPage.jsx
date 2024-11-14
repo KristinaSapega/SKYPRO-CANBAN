@@ -1,4 +1,4 @@
-//import "./login.css"
+
 import { Wrapper } from "../../global.styled";
 import { Modal, ModalBlock, ModalBtn, ModalForm, ModalFormGroup, ModalInput, ModalTitle } from "../../common.styled";
 import { Link, useNavigate } from "react-router-dom";

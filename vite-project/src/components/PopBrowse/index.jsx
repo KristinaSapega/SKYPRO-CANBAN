@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { deleteTask, getTaskById, updateTask } from "../../api/tasks";
 import { useTasksContext } from "../../context/useTasksContext";
 import { useUserContext } from "../../context/useUserContext";
+import { format } from "date-fns";
 
 export const PopBrowse = () => {
 	const { cardId } = useParams();
@@ -80,8 +81,10 @@ export const PopBrowse = () => {
 				topic: topic,
 			};
 			const updatedTasks = await updateTask(cardId, updatedData, user.token);
+
 			setTasks(updatedTasks.tasks); // Обновляем список задач
 			setIsEditing(false); // Возврат в режим просмотра
+
 		} catch (error) {
 			console.error("Ошибка при сохранении задачи:", error);
 			alert("Не удалось сохранить задачу. Пожалуйста, попробуйте снова.");
@@ -143,11 +146,18 @@ export const PopBrowse = () => {
 										readOnly={!isEditing}
 										onChange={(e) => setDescription(e.target.value)}
 										value={description}
+										$isEditing={isEditing}
 									/>
 								</S.FormTextAreaBlock>
 							</S.PopBrowseForm>
-							<Calendar onChange={(selectedDate) => setDate(selectedDate)}
-								selected={date} />
+							<S.CalendarWrapper>
+								<Calendar date={date} setDate={(selectedDate) => {
+									setDate(selectedDate);
+								}} />
+								<S.CalendarContentP>
+									Срок исполнения: {format(date, "dd.MM.yyyy")}
+								</S.CalendarContentP>
+							</S.CalendarWrapper>
 						</S.PopBrowseWrap>
 						<S.ButtonContainer>
 							<S.ButtonGroup>

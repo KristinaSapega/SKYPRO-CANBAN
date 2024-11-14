@@ -66,7 +66,6 @@ export const PopNewCard = () => {
 		}
 	};
 
-	//const [activeCategory, setActiveCategory] = useState("");
 
 	const handleCategoryClick = (category) => {
 		setNewTask({ ...newTask, topic: category });
@@ -121,7 +120,6 @@ export const PopNewCard = () => {
 							<S.Calendar>
 								<S.CalendarTtl>Даты</S.CalendarTtl>
 								<Calendar date={taskDate} setDate={handleDateChange} />
-								{/* <Calendar onChange={handleDateChange} selected={taskDate} /> */}
 								<S.CalendarContentP> {dateMessage} </S.CalendarContentP>
 
 							</S.Calendar>

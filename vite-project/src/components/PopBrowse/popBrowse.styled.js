@@ -112,6 +112,11 @@ export const PopBrowseWrap = styled.div`
   justify-content: space-between;
 `;
 
+export const CalendarWrapper = styled.div`
+  display: flex;
+  flex-direction: column; /* Располагает календарь и текст по вертикали */
+  align-items: flex-start; /* Выравнивает элементы по началу */
+`;
 export const PopBrowseForm = styled.form`
   max-width: 370px;
   width: 100%;
@@ -129,7 +134,7 @@ export const FormTextArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: #EAEEF6;
+  background: ${({ $isEditing }) => ($isEditing ? '#FFFFFF' : '#EAEEF6')};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -138,9 +143,7 @@ export const FormTextArea = styled.textarea`
   margin-top: 14px;
   height: 200px;
 
-   &:focus {
-    background: #FFFFFF; 
-  }
+   
   
   &::placeholder {
     font-weight: 400;
@@ -220,4 +223,16 @@ export const ButtonLink = styled(Link)`
   justify-content: center;
   width: 100%;
   height: 100%;
+`;
+
+export const CalendarContentP = styled.p`
+  color: #94a6be;
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
+  height: 22px;
+  margin-top: 14px;
+  
 `;

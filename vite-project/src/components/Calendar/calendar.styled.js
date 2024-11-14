@@ -19,26 +19,9 @@ export const Calendar = styled(DayPicker) `
     color: white;
     border-radius: 50%;
    }
-  //font-weight: 400; 
 
-  /* width: 182px;
-  margin-bottom: 20px; */
-
+.rdp-grid {
+    gap: 14px; 
+  }
 `;
-// export const CalendarContentP = styled.p`
-//   width: 100px;
-//   color: #94a6be;
-//   font-family: Roboto;
-//   font-size: 10px;
-//   font-weight: 400;
-//   line-height: 12px;
-//   text-align: left;
-//   height: 22px;
-//   margin-top: 14px;
-// `;
-
-// export const SelectedDate = styled.span`
-//   color: black;
-//   font-family: Roboto;
-// `;
 
