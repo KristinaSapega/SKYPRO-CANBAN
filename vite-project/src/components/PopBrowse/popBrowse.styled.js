@@ -14,15 +14,18 @@ export const PopBrowse = styled.div`
 `;
 
 export const PopBrowseContainer = styled.div`
+  position: fixed; /* Фиксированное позиционирование */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрирование по горизонтали и вертикали */
   width: 100%;
   height: 100%;
-  min-height: 100vh;
   padding: 0 16px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
 `;
 
 export const PopBrowseBlock = styled.div`
