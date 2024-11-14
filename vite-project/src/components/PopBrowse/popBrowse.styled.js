@@ -14,10 +14,10 @@ export const PopBrowse = styled.div`
 `;
 
 export const PopBrowseContainer = styled.div`
-  position: fixed; /* Фиксированное позиционирование */
+  position: fixed; 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Центрирование по горизонтали и вертикали */
+  transform: translate(-50%, -50%); 
   width: 100%;
   height: 100%;
   padding: 0 16px;
