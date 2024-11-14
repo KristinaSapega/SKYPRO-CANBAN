@@ -11,9 +11,22 @@ export const Calendar = styled(DayPicker) `
 --rdp-month_caption-font: 10px;
 --rdp-selected-font:10px;
 --rdp-accent-background-color: rgb(234, 238, 246);
+width: 168px !important;
+max-width: 168px;
 
   color: rgb(148, 166, 190);
    font-size: 10px; 
+
+    .rdp-caption_label {
+    font-size: 12px;
+  }
+
+  .rdp-button_previous,
+  .rdp-button_next {
+    width: 20px;
+    height: 20px;
+  }
+   
    .rdp-day.rdp-selected {
     background-color: #94A6BE;
     color: white;
@@ -23,5 +36,7 @@ export const Calendar = styled(DayPicker) `
 .rdp-grid {
     gap: 14px; 
   }
+
+  
 `;
 
