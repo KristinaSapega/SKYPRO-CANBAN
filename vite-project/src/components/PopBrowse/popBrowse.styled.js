@@ -83,6 +83,8 @@ export const StatusContainer = styled.div`
 
 export const BrowseStatusP = styled.p`
   margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
 `;
 
 export const BrowseStatusThemes = styled.div`
@@ -120,6 +122,16 @@ export const CalendarWrapper = styled.div`
   flex-direction: column; /* Располагает календарь и текст по вертикали */
   align-items: flex-start; /* Выравнивает элементы по началу */
 `;
+
+export const CalendarTtl = styled.p `
+ margin-bottom: 14px;
+  padding: 0 7px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+`;
+
 export const PopBrowseForm = styled.form`
   max-width: 370px;
   width: 100%;
@@ -130,6 +142,8 @@ export const PopBrowseForm = styled.form`
 export const FormTextAreaBlock = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
 `;
 
 export const FormTextArea = styled.textarea`

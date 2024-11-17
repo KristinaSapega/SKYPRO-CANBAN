@@ -18,8 +18,12 @@ max-width: 168px;
    font-size: 10px; 
 
     .rdp-caption_label {
-    font-size: 12px;
+    font-size: 14px;
   }
+
+  .rdp-weekday {
+    font-size: 12px;
+}
 
   .rdp-button_previous,
   .rdp-button_next {
@@ -33,9 +37,22 @@ max-width: 168px;
     border-radius: 50%;
    }
 
+   .rdp-month_grid {
+    width: 168px;
+    height: 170px; 
+  }
+
 .rdp-grid {
     gap: 14px; 
   }
+
+  /* Стили для всего календаря при выключении */
+  ${({ disabled }) =>
+    disabled &&
+    `
+    opacity: 0.5; /* Полупрозрачность */
+    pointer-events: none; /* Отключить взаимодействие */
+  `}
 
   
 `;

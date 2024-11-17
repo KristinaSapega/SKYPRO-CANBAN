@@ -151,9 +151,12 @@ export const PopBrowse = () => {
 								</S.FormTextAreaBlock>
 							</S.PopBrowseForm>
 							<S.CalendarWrapper>
+								<S.CalendarTtl>Даты</S.CalendarTtl>
 								<Calendar date={date} setDate={(selectedDate) => {
 									setDate(selectedDate);
-								}} />
+								}}
+								disabled={!isEditing}
+								/>
 								<S.CalendarContentP>
 									Срок исполнения: {format(date, "dd.MM.yyyy")}
 								</S.CalendarContentP>
