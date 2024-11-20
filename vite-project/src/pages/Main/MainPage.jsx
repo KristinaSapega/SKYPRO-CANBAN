@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { Main } from "../../components/Main";
-//import { PopBrowse } from '../../components/PopBrowse';
 import { PopNewCard } from '../../components/PopNewCard/popNewCard.jsx';
-//import { PopUser } from '../../components/PopUser';
-//import { cardList } from "../../data.js";
-import { Wrapper } from "../../global.styled.js";
+import { Loader, Wrapper } from "../../global.styled.js";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../api/tasks.js";
 import { useUserContext } from "../../context/useUserContext.js";
@@ -25,14 +22,12 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
     
 
     useEffect(() => {
-        console.log(user)
         if (user && user.token) {
             getTasks(user.token)
             .then((resp) => {
                 setTasks(resp.tasks);
             })
             .catch((error) => {
-                console.log (error);
                 setError("Ошибка загрузки данных: " + error.message);
             })
             .finally(() => {
@@ -62,7 +57,7 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
             openModal={openModal}/>
 
             {isLoading ? (
-                <p className="loader"> Данные загружаются...</p> 
+                <Loader> Данные загружаются...</Loader> 
             ) : error ? (
                 <p className="error">{error}</p>
             ) : (
@@ -70,8 +65,6 @@ export const MainPage = ({ changeTheme, setChangeTheme, setUser }) => {
             )}
 
             {isModalOpen && <PopNewCard onClose={closeModal} />}
-            {/* <PopBrowse /> */}
-            {/* <PopUser /> */}
             
         </Wrapper>
     )

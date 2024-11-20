@@ -6,12 +6,6 @@ export const Card = ({ topic, title, date, link, id}) => {
 
 	const formattedDate = format(new Date(date), 'dd.MM.yy');
 
-	// const themes = {
-	// 	"Web Design": "_orange",
-	// 	"Research": "_green",
-	// 	"Copywriting": "_purple",
-	// }
-	// const theme = themes[themeText] || " ";
     return (
         <S.CardsItem>
 									<S.Card>
@@ -20,11 +14,11 @@ export const Card = ({ topic, title, date, link, id}) => {
 												<p> {topic} </p>
 											</S.CardTheme>
 											<Link to={`/card/${id}`}>
-												<div className="card__btn">
-													<div></div>
-													<div></div>
-													<div></div>
-												</div>
+												<S.CardButton>
+													<S.Dot></S.Dot>
+													<S.Dot></S.Dot>
+													<S.Dot></S.Dot>
+												</S.CardButton>
 											</Link>
 										</S.CardGroup>
 										<S.CardContent>

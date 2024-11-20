@@ -6,7 +6,7 @@ import { useState } from "react";
 import { signUp } from "../../api/user";
 
 
-export const RegisterPage = ({setUser}) => {
+export const RegisterPage = () => {
 	const navigate = useNavigate()	
 
 	const [signUpData, setSignUpData] = useState ({
@@ -34,7 +34,6 @@ export const RegisterPage = ({setUser}) => {
 			navigate(routes.main)
 		})
 		.catch((error) => {
-			console.log(error.message)
 			setError(error.message)
 		})
 }

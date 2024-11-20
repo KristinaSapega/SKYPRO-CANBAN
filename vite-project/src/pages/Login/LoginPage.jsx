@@ -1,4 +1,4 @@
-//import "./login.css"
+
 import { Wrapper } from "../../global.styled";
 import { Modal, ModalBlock, ModalBtn, ModalForm, ModalFormGroup, ModalInput, ModalTitle } from "../../common.styled";
 import { Link, useNavigate } from "react-router-dom";
@@ -39,14 +39,8 @@ export const LoginPage = () => {
 			localStorage.setItem("user", JSON.stringify(resp))
 			navigate(routes.main)
 		} catch (error) {
-			console.log (error.message)
 			setError(error.message)
 		}
-		// signIn(formData).then((resp) => {
-		// 	console.log(resp.user)
-		// 	login(resp.user)
-		// 	navigate(routes.main)
-		// })
 		
 	}
 	return (

@@ -11,34 +11,49 @@ export const Calendar = styled(DayPicker) `
 --rdp-month_caption-font: 10px;
 --rdp-selected-font:10px;
 --rdp-accent-background-color: rgb(234, 238, 246);
+width: 168px !important;
+max-width: 168px;
 
   color: rgb(148, 166, 190);
    font-size: 10px; 
+
+    .rdp-caption_label {
+    font-size: 14px;
+  }
+
+  .rdp-weekday {
+    font-size: 12px;
+}
+
+  .rdp-button_previous,
+  .rdp-button_next {
+    width: 20px;
+    height: 20px;
+  }
+   
    .rdp-day.rdp-selected {
     background-color: #94A6BE;
     color: white;
     border-radius: 50%;
    }
-  //font-weight: 400; 
 
-  /* width: 182px;
-  margin-bottom: 20px; */
+   .rdp-month_grid {
+    width: 168px;
+    height: 170px; 
+  }
 
+.rdp-grid {
+    gap: 14px; 
+  }
+
+  /* Стили для всего календаря при выключении */
+  ${({ disabled }) =>
+    disabled &&
+    `
+    opacity: 0.5; /* Полупрозрачность */
+    pointer-events: none; /* Отключить взаимодействие */
+  `}
+
+  
 `;
-// export const CalendarContentP = styled.p`
-//   width: 100px;
-//   color: #94a6be;
-//   font-family: Roboto;
-//   font-size: 10px;
-//   font-weight: 400;
-//   line-height: 12px;
-//   text-align: left;
-//   height: 22px;
-//   margin-top: 14px;
-// `;
-
-// export const SelectedDate = styled.span`
-//   color: black;
-//   font-family: Roboto;
-// `;
 

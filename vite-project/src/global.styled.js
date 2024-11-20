@@ -94,7 +94,12 @@ color: #FFFFFF;
 &:hover a {
 color: #ffffff;
     }
-`;
+`
+export const Loader = styled.p`
+  text-align: center;
+  margin-top: 30px;
+  `
+
 
 
 

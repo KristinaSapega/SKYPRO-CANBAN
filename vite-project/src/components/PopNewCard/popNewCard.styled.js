@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Green, Orange, Purple } from "../../global.styled";
+import { Hover01 } from "../../global.styled";
 
 export const PopNewCard = styled.div `
  width: 100%;
@@ -101,7 +102,7 @@ export const FormNewInput = styled.input `
 width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  background: #EAEEF6;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -109,6 +110,10 @@ width: 100%;
   letter-spacing: -0.14px;
   margin: 20px 0;
   font-family: "Roboto";
+
+   &:focus {
+    background: #FFFFFF; 
+  }
 
   &::placeholder {
     font-weight: 400;
@@ -126,13 +131,19 @@ export const FormNewArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  background: #EAEEF6;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
   font-family: "Roboto";
+  background color: #EAEEF6;
+
+  &:focus {
+    background: #FFFFFF; 
+  }
+
 
   &::placeholder {
     font-weight: 400;
@@ -147,8 +158,6 @@ export const FormNewArea = styled.textarea`
 export const Calendar = styled.div `
 /* margin-bottom: 20px;
 width: 100%; /* Устанавливаем календарь на всю ширину родительского блока */
-//max-width: 300px; /* Максимальная ширина для удобного отображения */
-//margin-bottom: 20px; */
 `;
 
 export const CalendarContentP = styled.p`
@@ -259,3 +268,19 @@ export const TopicGreen = styled.label`
   opacity: ${({ $active }) => ($active ? 1 : 0.4)};
 `;
 
+export const FormNewCreate = styled.button`
+  width: 132px;
+  height: 30px;
+  background-color: #565EEF;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #FFFFFF;
+  float: right;
+  cursor: pointer;
+
+  ${Hover01};
+`;

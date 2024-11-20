@@ -53,8 +53,25 @@ width: auto;
   font-weight: 600;
   line-height: 10px;
 }
-  
 `
+
+export const CardButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2px;
+  cursor: pointer;
+`
+
+export const Dot = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #94A6BE;
+`
+
 export const CardContent = styled.div `
   height: 64px;
   display: flex;

@@ -4,7 +4,7 @@ import { useUser } from "../hooks/useUser";
 export const UserContext = createContext(null);
 
 export const UserProvider = ({children}) => {
-    const {user, login, logout} = useUser();
+    const {user, setUser, login, logout} = useUser();
 
     useEffect(() => {
         if (user) {
@@ -14,7 +14,7 @@ export const UserProvider = ({children}) => {
         } 
     }, [user]);
     return (
-        <UserContext.Provider value={{user, login, logout}}>
+        <UserContext.Provider value={{user, setUser, login, logout}}>
             {children}
         </UserContext.Provider>
     )

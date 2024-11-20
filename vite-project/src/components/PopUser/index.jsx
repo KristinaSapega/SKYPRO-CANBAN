@@ -16,9 +16,7 @@ export const PopUser = () => {
         <PopExit id="popExit">
 				<PopExitContainer>
 					<PopExitBlog>
-						{/* <div className="pop-exit__ttl"> */}
 							<PopExitTitle>Выйти из аккаунта?</PopExitTitle>
-						{/* </div> */}
 						<form className="pop-exit__form" id="formExit" action="#">
 							<PopExitFormGroup>
 								<PopExitButtonYes id="exitYes" onClick={handleLogout}><a>Да, выйти</a> </PopExitButtonYes>
