@@ -1,6 +1,6 @@
 # Канбан-доска
 
-## [Деплой проекта](https://skypro-canban-1q3dszomx-kristinasapegas-projects.vercel.app)
+## [Деплой проекта](https://skypro-kanban.vercel.app)
 
 ---
 
